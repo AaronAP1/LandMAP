@@ -36,12 +36,22 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-none absolute top-0 right-0 z-10 hidden lg:block lg:w-[400px] xl:w-[460px]"
         >
-          <img
-            src={andesMpBanner}
-            alt="AndesMP – Servidor Peruano ETS2"
-            className="h-auto w-full drop-shadow-[0_0_50px_rgba(255,255,255,0.1)]"
-            style={{ transform: 'translateY(-220px)' }}
-          />
+          <div className="relative" style={{ transform: 'translateY(-220px)' }}>
+            <div
+              className="absolute -inset-6 opacity-70 blur-md"
+              style={{
+                clipPath:
+                  'polygon(3% 10%, 11% 2%, 26% 6%, 40% 2%, 54% 7%, 69% 3%, 84% 8%, 95% 17%, 98% 34%, 94% 48%, 99% 64%, 93% 79%, 85% 94%, 70% 97%, 53% 93%, 37% 98%, 19% 92%, 8% 83%, 4% 67%, 1% 50%, 6% 33%)',
+                background:
+                  'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.28), rgba(255,255,255,0.03) 68%, transparent 100%)',
+              }}
+            />
+            <img
+              src={andesMpBanner}
+              alt="AndesMP – Servidor Peruano ETS2"
+              className="relative h-auto w-full mix-blend-screen drop-shadow-[0_12px_30px_rgba(0,0,0,0.45)]"
+            />
+          </div>
         </motion.div>
 
         <div className="relative mb-12 mt-60">
@@ -54,10 +64,11 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h1 className="mb-6 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-6xl">
-                  The product development
+                <h1 className="group mb-6 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-6xl">
+                  <span className="text-white transition-all duration-300 group-hover:text-red-400 group-hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">AndesMP</span>{' '}
+                  servidor
                   <br />
-                  system for teams and agents
+                  para rodar con tu comunidad
                 </h1>
               </motion.div>
 
@@ -68,7 +79,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-base text-white/50"
             >
-              Purpose-built for planning and building products. Designed for the AI era.
+              Entra, conecta y disfruta rutas tranquilas, eventos casuales y una comunidad activa sin drama.
             </motion.p>
 
             <motion.a
@@ -80,9 +91,9 @@ export default function Hero() {
             >
               <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2 py-0.5 text-xs font-medium text-emerald-400">
                 <Sparkles className="h-3 w-3" />
-                New
+                En vivo
               </span>
-              Linear Diffs (Beta)
+              Estado del servidor AndesMP
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </motion.a>
           </div>
