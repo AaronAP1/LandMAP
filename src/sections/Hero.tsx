@@ -11,7 +11,7 @@ import {
   Sparkles,
   UserCircle2,
 } from 'lucide-react';
-import andesMpBanner from '../img/servidorPeruanoETS2AndesMP.svg?url';
+import andesMpBanner from '../img/0315-slow.gif';
 
 export default function Hero() {
   return (
@@ -29,7 +29,7 @@ export default function Hero() {
       <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-gradient-radial from-white/[0.04] to-transparent blur-3xl" style={{ animationDelay: '1.5s' }} />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* SVG overlaid to the right, out of hero text flow */}
+        {/* GIF overlaid to the right, out of hero text flow */}
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
@@ -139,7 +139,7 @@ export default function Hero() {
                   <LauncherSidebarItem icon={<Settings className="h-4 w-4" />} label="Configuracion" />
                   <LauncherSidebarItem
                     icon={<UserCircle2 className="h-4 w-4" />}
-                    label="[JDT] Bless"
+                    label="User profile"
                     trailing={<ChevronRight className="h-3.5 w-3.5" />}
                   />
                 </div>
