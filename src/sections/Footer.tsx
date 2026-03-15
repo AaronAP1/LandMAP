@@ -1,111 +1,67 @@
-interface FooterLink {
-  name: string;
-  href: string;
-  badge?: string;
-}
-
-interface FooterLinks {
-  [key: string]: FooterLink[];
-}
-
-const footerLinks: FooterLinks = {
-  Product: [
-    { name: 'Intake', href: '#intake' },
-    { name: 'Plan', href: '#plan' },
-    { name: 'Build', href: '#build' },
-    { name: 'Diffs', href: '#diffs' },
-    { name: 'Monitor', href: '#monitor' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Security', href: '#security' },
+const footerColumns = [
+  [
+    { name: 'Descargar', href: '#download' },
+    { name: 'Producto', href: '#product' },
+    { name: 'Docs', href: '#docs' },
+    { name: 'Novedades', href: '#updates' },
+    { name: 'Auspicios', href: '#press' },
+    { name: 'Novedades', href: '#releases' },
   ],
-  Features: [
-    { name: 'Asks', href: '#asks' },
-    { name: 'Agents', href: '#agents' },
-    { name: 'Customer Requests', href: '#customer-requests' },
-    { name: 'Insights', href: '#insights' },
-    { name: 'Mobile', href: '#mobile' },
-    { name: 'Integrations', href: '#integrations' },
-    { name: 'Changelog', href: '#changelog' },
-  ],
-  Company: [
-    { name: 'About', href: '#about' },
-    { name: 'Customers', href: '#customers' },
-    { name: 'Careers', href: '#careers' },
+  [
     { name: 'Blog', href: '#blog' },
-    { name: 'Method', href: '#method' },
-    { name: 'Quality', href: '#quality' },
-    { name: 'Brand', href: '#brand' },
+    { name: 'Contacto', href: '#contact' },
+    { name: 'Casos de uso', href: '#use-cases' },
   ],
-  Resources: [
-    { name: 'Switch', href: '#switch' },
-    { name: 'Download', href: '#download' },
-    { name: 'Documentation', href: '#docs', badge: 'Docs' },
-    { name: 'Developers', href: '#developers' },
-    { name: 'Status', href: '#status' },
-    { name: 'Enterprise', href: '#enterprise' },
-    { name: 'Startups', href: '#startups' },
-  ],
-  Connect: [
-    { name: 'Contact us', href: '#contact' },
-    { name: 'Community', href: '#community' },
-    { name: 'X (Twitter)', href: '#twitter' },
-    { name: 'GitHub', href: '#github' },
-    { name: 'YouTube', href: '#youtube' },
-  ],
-};
+];
+
+const bottomLinks = [
+  { name: 'About AndesMP', href: '#about' },
+  { name: 'Empresas', href: '#product' },
+  { name: 'Privacidad', href: '#privacy' },
+  { name: 'Términos', href: '#terms' },
+];
 
 export default function Footer() {
   return (
-    <footer className="py-16 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <div className="mb-12">
-          <a href="/" className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
-              <svg viewBox="0 0 24 24" className="w-4 h-4 text-black" fill="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <span className="text-white font-semibold text-lg">Linear</span>
-          </a>
-        </div>
+    <footer className="overflow-hidden bg-black text-white">
+      <div className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
+        <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-start">
+          <div>
+            <p className="max-w-md text-3xl font-medium tracking-tight text-white sm:text-4xl">
+              Experiencia que despega.
+            </p>
+          </div>
 
-        {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="text-white font-medium mb-4">{category}</h3>
-              <ul className="space-y-2">
-                {links.map((link) => (
+          <div className="grid grid-cols-2 gap-10 sm:gap-16 lg:justify-self-end">
+            {footerColumns.map((column, index) => (
+              <ul key={index} className="space-y-3 text-base sm:text-lg">
+                {column.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-white/50 hover:text-white text-sm transition-colors inline-flex items-center gap-2"
-                    >
+                    <a href={link.href} className="text-white/82 transition-colors hover:text-white">
                       {link.name}
-                      {link.badge && (
-                        <span className="px-1.5 py-0.5 bg-white/10 rounded text-xs text-white/60">
-                          {link.badge}
-                        </span>
-                      )}
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 gap-4">
-          <div className="flex items-center gap-2 text-white/40 text-sm">
-            <div className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse" />
-            <span>Degraded performance</span>
+        <div className="mt-14 overflow-hidden">
+          <div className="text-[clamp(4.5rem,18vw,14rem)] font-medium leading-[0.9] tracking-[-0.08em] text-white">
+            AndesMP
           </div>
-          <div className="flex items-center gap-6 text-white/40 text-sm">
-            <a href="#privacy" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#terms" className="hover:text-white transition-colors">Terms</a>
-            <a href="#dpa" className="hover:text-white transition-colors">DPA</a>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-5 border-t border-white/10 pt-6 text-sm text-white/58 md:flex-row md:items-center md:justify-between">
+          <div className="text-lg font-medium text-white/88">AndesMP</div>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            {bottomLinks.map((link) => (
+              <a key={link.name} href={link.href} className="transition-colors hover:text-white">
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>

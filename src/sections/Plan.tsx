@@ -3,33 +3,33 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Plus } from 'lucide-react';
 
-const months = ['FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP'];
+const modes = ['BASE', 'FREE', 'PVP', 'EVENT', 'NIGHT', 'DARK', 'RACE', 'OPEN'];
 
 const initiatives = [
   {
-    name: 'Core Product',
-    count: 99,
+    name: 'Reglas base',
+    count: 6,
     items: [
-      { name: 'Infra stability', count: 28 },
-      { name: 'Autonomous systems', count: 16 },
-      { name: 'Mobile apps', count: 8 },
+      { name: 'Respeto en convoys y rutas públicas', count: 1 },
+      { name: 'Nada de choques intencionales', count: 1 },
+      { name: 'Prioridad al orden del staff', count: 1 },
     ],
   },
   {
-    name: 'APAC Expansion',
-    count: 21,
+    name: 'Modos especiales',
+    count: 5,
     items: [
-      { name: 'Japan Launch', count: 12 },
-      { name: 'Customer-driven priorities', count: 9 },
+      { name: 'Horas libres con menos restricciones', count: 2 },
+      { name: 'Todo vale en horarios puntuales', count: 3 },
     ],
   },
 ];
 
 const roadmapItems = [
-  { name: 'UI Refresh', start: 0, duration: 3, phase: 'Core screens' },
-  { name: 'Polish', start: 2, duration: 2, phase: 'Internal' },
-  { name: 'Split fares', start: 3, duration: 2, phase: 'Public Beta' },
-  { name: 'Autonomy status clarity', start: 5, duration: 3, phase: 'Alpha' },
+  { name: 'Horario normal', start: 0, duration: 2, phase: 'Reglas activas' },
+  { name: 'Horas libres', start: 2, duration: 2, phase: 'Flexibilidad' },
+  { name: 'Todo vale', start: 4, duration: 1, phase: 'Sin sancion leve' },
+  { name: 'Evento especial', start: 5, duration: 3, phase: 'Supervisado' },
 ];
 
 export default function Plan() {
@@ -48,16 +48,16 @@ export default function Plan() {
             className="relative order-2 lg:order-1"
           >
             <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl">
-              {/* Roadmap Header */}
+              {/* Modes Header */}
               <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#0d0d0d]">
                 <div className="flex items-center gap-4">
-                  {months.map((month, i) => (
-                    <div key={month} className="text-center">
-                      <div className="text-white/40 text-xs mb-1">{month}</div>
+                  {modes.map((mode, i) => (
+                    <div key={mode} className="text-center">
+                      <div className="text-white/40 text-xs mb-1">{mode}</div>
                       <div className="flex gap-1">
                         {[1, 8, 15, 22].map((date) => (
                           <div key={date} className="w-6 h-6 flex items-center justify-center text-white/30 text-xs">
-                            {i === 0 ? date : ''}
+                            {i === 0 ? date : i === 2 ? '•' : ''}
                           </div>
                         ))}
                       </div>
@@ -66,7 +66,7 @@ export default function Plan() {
                 </div>
               </div>
 
-              {/* Initiatives */}
+              {/* Rules Groups */}
               <div className="p-4 space-y-4">
                 {initiatives.map((initiative) => (
                   <div key={initiative.name} className="border border-white/5 rounded-lg overflow-hidden">
@@ -89,7 +89,7 @@ export default function Plan() {
                 ))}
               </div>
 
-              {/* Timeline */}
+              {/* Mode Timeline */}
               <div className="p-4 border-t border-white/5">
                 <div className="space-y-3">
                   {roadmapItems.map((item, index) => (
@@ -104,8 +104,8 @@ export default function Plan() {
                         <div
                           className="absolute top-0 h-full bg-white/10 rounded"
                           style={{
-                            left: `${(item.start / months.length) * 100}%`,
-                            width: `${(item.duration / months.length) * 100}%`,
+                            left: `${(item.start / modes.length) * 100}%`,
+                            width: `${(item.duration / modes.length) * 100}%`,
                           }}
                         />
                       </div>
@@ -126,10 +126,10 @@ export default function Plan() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
               Definamos las reglas
               <br />
-              Mejor experiencia
+              y los modos del servidor
             </h2>
             <p className="text-lg text-white/50 mb-8 leading-relaxed">
-              Sabemos que la comunidad de simulación en Perú es apasionada y diversa, y queremos asegurarnos de que todos tengan una experiencia increíble. 
+              La experiencia mejora cuando todos conocen cómo se juega: reglas claras, horas libres bien marcadas y modos especiales como todo vale en ventanas específicas.
             </p>
             <a
               href="#plan"
@@ -137,7 +137,7 @@ export default function Plan() {
             >
               <span className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-white/10 rounded-full">
                 2.0
-                <span className="text-white/60">Plan</span>
+                <span className="text-white/60">Reglas y modos</span>
               </span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>

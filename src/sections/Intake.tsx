@@ -5,42 +5,42 @@ import { ArrowRight } from 'lucide-react';
 
 const columns = [
   {
-    name: 'Backlog',
-    count: 8,
+    name: 'Hoy',
+    count: 4,
     issues: [
-      { id: 'ENG-2085', title: 'Reduce UI flicker during autonomy...', labels: [] },
-      { id: 'ENG-2094', title: 'Add buffering for autonomy event streams', labels: [] },
-      { id: 'ENG-2092', title: 'Reduce startup delay caused by vehicle sync', labels: [] },
-      { id: 'ENG-2200', title: 'Fix delayed route updates during rerouting', labels: [] },
+      { id: 'EVT-201', title: 'Convoy en empresas', labels: [{ name: 'Convoy', color: 'red' }, { name: '19:30', color: 'blue' }] },
+      { id: 'EVT-202', title: 'Cargas especiales con escolta nocturna', labels: [{ name: 'Especial', color: 'orange' }] },
+      { id: 'EVT-203', title: 'Chapa tu tombo por la Panamericana', labels: [{ name: 'Mini juego', color: 'purple' }] },
+      { id: 'EVT-204', title: 'Ruta libre con parada en estaciones', labels: [{ name: 'Comunidad', color: 'green' }] },
     ],
   },
   {
-    name: 'Todo',
-    count: 71,
+    name: 'En coordinacion',
+    count: 4,
     issues: [
-      { id: 'ENG-926', title: 'Remove UI inconsistencies', labels: [{ name: 'Bug', color: 'red' }, { name: 'Design', color: 'purple' }] },
-      { id: 'ENG-2088', title: 'TypeError: Cannot read properties', labels: [{ name: 'Bug', color: 'red' }] },
-      { id: 'ENG-924', title: 'Upgrade to Claude Opus 4.5', labels: [{ name: 'AI', color: 'blue' }] },
-      { id: 'ENG-1882', title: 'Optimize load times', labels: [{ name: 'Performance', color: 'green' }] },
+      { id: 'COR-118', title: 'Salida del Dakar comunitario', labels: [{ name: 'Dakar', color: 'orange' }, { name: 'Briefing', color: 'blue' }] },
+      { id: 'COR-119', title: 'Puntos de reunión para convoy interprovincial', labels: [{ name: 'Ruta', color: 'green' }] },
+      { id: 'COR-120', title: 'Asignación de moderadores para evento nocturno', labels: [{ name: 'Staff', color: 'pink' }] },
+      { id: 'COR-121', title: 'Revisión de cargas y remolques habilitados', labels: [{ name: 'Reglas', color: 'purple' }] },
     ],
   },
   {
-    name: 'In Progress',
+    name: 'Especiales',
     count: 3,
     issues: [
-      { id: 'ENG-1487', title: 'Remove contentData from GraphQL API', labels: [{ name: 'API', color: 'orange' }] },
-      { id: 'MKT-1028', title: 'Launch page assets', labels: [{ name: 'Design', color: 'purple' }] },
-      { id: 'ENG-2187', title: 'Prevent duplicate ride requests on poor...', labels: [{ name: 'Bug', color: 'red' }] },
+      { id: 'ESP-090', title: 'Evento temático: Noche de buses clásicos', labels: [{ name: 'Temático', color: 'purple' }] },
+      { id: 'ESP-091', title: 'Convoy extremo por rutas de montaña', labels: [{ name: 'Reto', color: 'red' }] },
+      { id: 'ESP-092', title: 'Carrera larga con checkpoints ocultos', labels: [{ name: 'Competitivo', color: 'orange' }] },
     ],
   },
   {
-    name: 'Done',
-    count: 53,
+    name: 'Completados',
+    count: 4,
     issues: [
-      { id: 'ENG-2074', title: 'Clean up deprecated APIs...', labels: [{ name: 'API', color: 'orange' }] },
-      { id: 'ENG-1912', title: 'Reduce latency in autonomy st...', labels: [] },
-      { id: 'ENG-1951', title: 'Reduce ETA fluctuations durin...', labels: [] },
-      { id: 'ENG-1960', title: 'Improve fallback messaging', labels: [{ name: 'UI', color: 'pink' }] },
+      { id: 'FIN-061', title: 'Convoy Busscar edición domingo', labels: [{ name: 'Finalizado', color: 'green' }] },
+      { id: 'FIN-062', title: 'Cargas especiales por la sierra central', labels: [{ name: 'Finalizado', color: 'green' }] },
+      { id: 'FIN-063', title: 'Chapa tu tombo edición nocturna', labels: [{ name: 'Replay', color: 'blue' }] },
+      { id: 'FIN-064', title: 'Ruta libre de bienvenida a nuevos usuarios', labels: [{ name: 'Comunidad', color: 'pink' }] },
     ],
   },
 ];
@@ -68,7 +68,7 @@ export default function Intake() {
               Cada día algo nuevo
             </h2>
             <p className="text-lg text-white/50 mb-8 leading-relaxed">
-              Descubre los eventos especiales que se celebran cada día en AndesMP.
+              Revisa la agenda del día, las coordinaciones activas y los eventos especiales que mantienen al servidor siempre en movimiento.
             </p>
             <a
               href="#intake"
@@ -76,7 +76,7 @@ export default function Intake() {
             >
               <span className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-white/10 rounded-full">
                 1.0
-                <span className="text-white/60">Conoce más</span>
+                <span className="text-white/60">Agenda del servidor</span>
               </span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -93,23 +93,24 @@ export default function Intake() {
               {/* Board Header */}
               <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#0d0d0d]">
                 <div className="flex items-center gap-3">
-                  <span className="text-white/40 text-sm">Thread in</span>
-                  <span className="px-2 py-0.5 bg-purple-500/20 text-purple-400 rounded text-xs">#feedback</span>
+                  <span className="text-white/40 text-sm">Canal</span>
+                  <span className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 rounded text-xs">#eventos-andesmp</span>
                 </div>
+                <span className="text-white/30 text-xs">Actualizado hoy</span>
               </div>
 
-              {/* Chat Messages */}
+              {/* Coordination Feed */}
               <div className="p-4 border-b border-white/5 space-y-4">
                 <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-xs text-white font-medium">
-                    L
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-xs text-white font-medium">
+                    A
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-white text-sm font-medium">lena</span>
-                      <span className="text-white/40 text-xs">12:59 PM</span>
+                      <span className="text-white text-sm font-medium">Bless staff</span>
+                      <span className="text-white/40 text-xs">6:00 PM</span>
                     </div>
-                    <p className="text-white/70 text-sm mt-1">Anyone else noticing the iOS app feels slow to open if you haven't used it in a bit?</p>
+                    <p className="text-white/70 text-sm mt-1">Hoy abrimos con convoy en empresas. Salida oficial desde Lima, briefing 15 minutos antes.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -118,29 +119,28 @@ export default function Intake() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-white text-sm font-medium">didier</span>
-                      <span className="text-white/40 text-xs">12:59 PM</span>
+                      <span className="text-white text-sm font-medium">Juan de Dios lead</span>
+                      <span className="text-white/40 text-xs">6:08 PM</span>
                     </div>
-                    <p className="text-white/70 text-sm mt-1">Yea, we're still blocking initial render on a full vehicle_state sync every time...</p>
+                    <p className="text-white/70 text-sm mt-1">Confirmados los puntos de parada, combustible y orden de salida para buses, camiones y cargas especiales.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-xs text-white font-medium">
-                    A
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-lime-500 flex items-center justify-center text-xs text-white font-medium">
+                    M
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-white text-sm font-medium">andreas</span>
-                      <span className="text-white/40 text-xs">12:59 PM</span>
+                      <span className="text-white text-sm font-medium">Diosito </span>
+                      <span className="text-white/40 text-xs">6:15 PM</span>
                     </div>
-                    <p className="text-white/70 text-sm mt-1">Feels like we could render sooner and load the rest in the background. Probably also worth tracking startup timing so we know how often this happens!</p>
+                    <p className="text-white/70 text-sm mt-1">Después del convoy se habilita Chapa tu tombo y una ruta Dakar libre para quienes quieran seguir jugando en grupo.</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 p-3 rounded-lg bg-white/[0.03] border border-white/5">
-                  <span className="text-white/60 text-sm">@Linear</span>
-                  <span className="text-white/40 text-sm">create</span>
-                  <span className="text-white text-sm">urgent issues</span>
-                  <span className="text-white/40 text-sm">and assign to me</span>
+                  <span className="text-white/60 text-sm">@AndesMP</span>
+                  <span className="text-white/40 text-sm">publicar</span>
+                  <span className="text-white text-sm">agenda de hoy y próximos especiales</span>
                 </div>
               </div>
 

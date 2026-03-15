@@ -37,13 +37,13 @@ export default function CTA() {
             href="#signup"
             className="px-8 py-3 text-base font-medium text-black bg-white rounded-lg hover:bg-white/90 transition-colors"
           >
-            Get started
+            Descargar
           </a>
           <a
             href="#contact"
             className="px-8 py-3 text-base font-medium text-white border border-white/20 rounded-lg hover:bg-white/5 transition-colors"
           >
-            Contact sales
+            Como unirme
           </a>
         </motion.div>
       </div>
