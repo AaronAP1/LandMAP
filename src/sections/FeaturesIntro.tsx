@@ -19,7 +19,20 @@ const features = [
 ];
 
 export default function FeaturesIntro() {
-  const partners = ['Busscar', 'Busstar', 'G6', 'G7', 'New G7', 'Comil', 'Zeus', 'Pickups'];
+  const partners = ['Busscar', 'Busstar', 'G6', 'G7', 'New G7', 'G8', 'Comil', 'Zeus', 'Pickups', 'Camiones', 'Carga Especial'];
+  const partnerStyles = [
+    'font-black uppercase tracking-[0.18em]',
+    'font-serif italic tracking-[0.08em]',
+    'font-mono uppercase tracking-[0.28em]',
+    'font-black tracking-[0.22em]',
+    'font-serif font-semibold tracking-[0.04em]',
+    'italic font-semibold tracking-[0.12em]',
+    'font-mono font-bold tracking-[0.22em]',
+    'font-black italic tracking-[0.08em]',
+    'font-serif uppercase tracking-[0.14em]',
+    'font-semibold tracking-[0.16em]',
+  ];
+  const marqueePartners = [...partners, ...partners];
 
   return (
     <section className="relative overflow-hidden pb-32 pt-0">
@@ -32,16 +45,25 @@ export default function FeaturesIntro() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-16 grid grid-cols-2 gap-y-8 text-white/90 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8"
+            className="relative mb-16 overflow-hidden"
           >
-            {partners.map((partner) => (
-              <div
-                key={partner}
-                className="text-center text-[28px] font-semibold tracking-tight text-white/90 sm:text-left sm:text-2xl"
-              >
-                {partner}
-              </div>
-            ))}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-black to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-black to-transparent" />
+
+            <motion.div
+              animate={{ x: ['-50%', '0%'] }}
+              transition={{ duration: 24, ease: 'linear', repeat: Infinity }}
+              className="flex w-max items-center gap-16 whitespace-nowrap sm:gap-20"
+            >
+              {marqueePartners.map((partner, index) => (
+                <div
+                  key={`${partner}-${index}`}
+                  className={`text-[24px] text-white/90 sm:text-[28px] ${partnerStyles[index % partnerStyles.length]}`}
+                >
+                  {partner}
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
           <motion.p
@@ -67,10 +89,10 @@ Diferentes marcas, generaciones y configuraciones para una experiencia de conduc
           className="text-center mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
-            A new species of product tool.
+            Una nueva forma de Simular.
           </h2>
           <p className="text-lg text-white/50 max-w-2xl mx-auto">
-            Purpose-built for modern teams with AI workflows at its core, Linear sets a new standard for planning and building products.
+            Diseñado por jugadores para jugadores, descubre la forma definitiva de experimentar la simulación en mapas peruanos.
           </p>
         </motion.div>
 
