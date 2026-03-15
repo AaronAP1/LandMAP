@@ -2,19 +2,19 @@ import { motion } from 'framer-motion';
 
 const features = [
   {
-    figure: 'FIG 0.2',
-    title: 'Built for purpose',
-    description: 'Linear is shaped by the practices and principles of world-class product teams.',
+    figure: 'V0 0.1',
+    title: 'Variedad de Mapas',
+    description: 'La forma de cambiar y probar semanalmente nuevos mapas ',
   },
   {
-    figure: 'FIG 0.3',
-    title: 'Powered by AI agents',
-    description: 'Designed for workflows shared by humans and agents. From drafting PRDs to pushing PRs.',
+    figure: 'V0 0.2',
+    title: 'Mapa DEFINITIVO',
+    description: 'Mientras se trabaja en el mapa definitivo, se lanzarán mapas semanales para que la comunidad pueda disfrutar de nuevas experiencias de conducción cada semana.',
   },
   {
-    figure: 'FIG 0.4',
-    title: 'Designed for speed',
-    description: 'Reduces noise and restores momentum to help teams ship with high velocity and focus.',
+    figure: 'V0 0.3',
+    title: 'Es un simulador ETS2',
+    description: 'Compartimos la misma pasión por la simulación, pero con un enfoque en la comunidad y la colaboración.',
   },
 ];
 
@@ -127,6 +127,32 @@ Diferentes marcas, generaciones y configuraciones para una experiencia de conduc
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-24 border-t border-white/10 pt-16"
+        >
+          <div className="grid gap-10 md:grid-cols-[1.15fr_1fr] md:gap-14">
+            <h3 className="max-w-xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
+              Conoce a los fundadores de la Idea y su visión para el servidor.
+            </h3>
+
+            <div className="flex flex-col justify-between gap-10">
+              <p className="max-w-xl text-lg leading-relaxed text-white/65 sm:text-2xl sm:leading-[1.35]">
+                Descubre la historia detrás de AndesMP y cómo su visión única se traduce en una experiencia de conducción inigualable.
+              </p>
+
+              <div className="text-xl text-white/35 sm:text-3xl">
+                <span className="font-medium">1.0</span>
+                <span className="ml-4">Conoce más</span>
+                <span className="ml-3">-&gt;</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -4,9 +4,6 @@ import FeaturesIntro from './sections/FeaturesIntro';
 import Intake from './sections/Intake';
 import Plan from './sections/Plan';
 import Build from './sections/Build';
-import Diffs from './sections/Diffs';
-import Monitor from './sections/Monitor';
-import Changelog from './sections/Changelog';
 import Testimonials from './sections/Testimonials';
 import CTA from './sections/CTA';
 import Footer from './sections/Footer';
@@ -21,9 +18,6 @@ function App() {
         <Intake />
         <Plan />
         <Build />
-        <Diffs />
-        <Monitor />
-        <Changelog />
         <Testimonials />
         <CTA />
       </main>

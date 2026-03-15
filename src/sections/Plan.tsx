@@ -124,12 +124,12 @@ export default function Plan() {
             className="order-1 lg:order-2"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
-              Define the
+              Definamos las reglas
               <br />
-              product direction
+              Mejor experiencia
             </h2>
             <p className="text-lg text-white/50 mb-8 leading-relaxed">
-              Plan and navigate from idea to launch. Align your team with product initiatives, strategic roadmaps, and clear, up-to-date PRDs.
+              Sabemos que la comunidad de simulación en Perú es apasionada y diversa, y queremos asegurarnos de que todos tengan una experiencia increíble. 
             </p>
             <a
               href="#plan"

@@ -68,7 +68,7 @@ export default function Hero() {
                   <span className="text-white transition-all duration-300 group-hover:text-red-400 group-hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">AndesMP</span>{' '}
                   servidor
                   <br />
-                  para rodar con tu comunidad
+                  para rodar en comunidad
                 </h1>
               </motion.div>
 

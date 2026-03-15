@@ -21,9 +21,9 @@ export default function CTA() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white tracking-tight mb-8">
-            Built for the future.
+            Empezemos algo nuevo.
             <br />
-            Available today.
+            Unete ahora.
           </h2>
         </motion.div>
 

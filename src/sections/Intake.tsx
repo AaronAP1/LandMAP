@@ -63,12 +63,12 @@ export default function Intake() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
-              Make product
+              Eventos especiales
               <br />
-              operations self-driving
+              Cada día algo nuevo
             </h2>
             <p className="text-lg text-white/50 mb-8 leading-relaxed">
-              Turn conversations and customer feedback into actionable issues that are routed, labeled, and prioritized for the right team.
+              Descubre los eventos especiales que se celebran cada día en AndesMP.
             </p>
             <a
               href="#intake"
@@ -76,7 +76,7 @@ export default function Intake() {
             >
               <span className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-white/10 rounded-full">
                 1.0
-                <span className="text-white/60">Intake</span>
+                <span className="text-white/60">Conoce más</span>
               </span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>

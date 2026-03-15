@@ -36,12 +36,12 @@ export default function Build() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
-              Move work forward
+              Trabaja en Empresas
               <br />
-              across teams and agents
+              VTC implementado
             </h2>
             <p className="text-lg text-white/50 mb-8 leading-relaxed">
-              Build and deploy AI agents that work alongside your team. Work on complex tasks together or delegate entire issues end-to-end.
+              Ven, crea y une gente para tu propia empresa de transporte. Con nuestro sistema de VTC, puedes gestionar tu flota, contratar conductores y para ser el mejor. 
             </p>
             <a
               href="#build"
