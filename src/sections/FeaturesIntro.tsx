@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 const features = [
   {
@@ -21,15 +19,50 @@ const features = [
 ];
 
 export default function FeaturesIntro() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const partners = ['Busscar', 'Busstar', 'G6', 'G7', 'New G7', 'Comil', 'Zeus', 'Pickups'];
 
   return (
-    <section ref={ref} className="py-32 relative overflow-hidden">
+    <section className="relative overflow-hidden pb-32 pt-0">
+      <div className="mb-24 overflow-hidden border-y border-white/10 bg-black">
+        <div className="h-28 bg-[radial-gradient(120%_120%_at_50%_5%,rgba(255,255,255,0.40),rgba(255,255,255,0.08)_38%,rgba(0,0,0,0)_72%)]" />
+
+        <div className="mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-16 grid grid-cols-2 gap-y-8 text-white/90 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8"
+          >
+            {partners.map((partner) => (
+              <div
+                key={partner}
+                className="text-center text-[28px] font-semibold tracking-tight text-white/90 sm:text-left sm:text-2xl"
+              >
+                {partner}
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.85, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-6xl text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:text-4xl md:text-5xl"
+          >
+            Una gran variedad de buses.
+            <span className="text-white/55"> Explora la colección de buses disponibles en el servidor.
+Diferentes marcas, generaciones y configuraciones para una experiencia de conducción única.</span>
+          </motion.p>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
@@ -46,7 +79,8 @@ export default function FeaturesIntro() {
             <motion.div
               key={feature.figure}
               initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="relative group"
             >
