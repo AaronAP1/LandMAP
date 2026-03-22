@@ -1,19 +1,52 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'Servidor', hasDropdown: true },
-  { name: 'Recursos', hasDropdown: true },
-  { name: 'Comunidad', href: '#comunidad' },
-  { name: 'Reglas', href: '#reglas' },
-  { name: 'Eventos', href: '#eventos' },
-  { name: 'Contacto', href: '#contacto' },
+  {
+    name: 'Servidor',
+    to: '/servidor',
+    dropdown: [
+      {
+        name: 'Informacion',
+        description: 'Detalles del servidor',
+        to: '/servidor',
+      },
+    ],
+  },
+  {
+    name: 'Recursos',
+    to: '/recursos',
+    dropdown: [
+      {
+        name: 'Guias',
+        description: 'Aprende a jugar mejor',
+        to: '/recursos?tab=guias',
+      },
+      {
+        name: 'Mods',
+        description: 'Descargas disponibles',
+        to: '/recursos?tab=mods',
+      },
+      {
+        name: 'FAQ',
+        description: 'Preguntas frecuentes',
+        to: '/recursos?tab=faq',
+      },
+    ],
+  },
+  { name: 'Comunidad', to: '/comunidad' },
+  { name: 'Reglas', to: '/reglas' },
+  { name: 'Eventos', to: '/eventos' },
+  { name: 'Contacto', to: '/contacto' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +55,10 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   return (
     <motion.header
@@ -35,19 +72,20 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.a
-            href="/"
+          <motion.div
             className="flex items-center gap-2"
             whileHover={{ scale: 1.02 }}
           >
-            <svg viewBox="0 0 40 40" className="w-8 h-8" fill="none">
-              <path d="M20 4L4 12L20 20L36 12L20 4Z" fill="#10b981" stroke="#059669" strokeWidth="1.5"/>
-              <path d="M4 20L20 28L36 20" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M4 28L20 36L36 28" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="20" cy="12" r="2" fill="#fbbf24"/>
-            </svg>
-            <span className="text-white font-semibold text-lg">AndesMP</span>
-          </motion.a>
+            <Link to="/" className="flex items-center gap-2">
+              <svg viewBox="0 0 40 40" className="w-8 h-8" fill="none">
+                <path d="M20 4L4 12L20 20L36 12L20 4Z" fill="#10b981" stroke="#059669" strokeWidth="1.5"/>
+                <path d="M4 20L20 28L36 20" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 28L20 36L36 28" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="20" cy="12" r="2" fill="#fbbf24"/>
+              </svg>
+              <span className="text-white font-semibold text-lg">AndesMP</span>
+            </Link>
+          </motion.div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-1">
@@ -55,61 +93,55 @@ export default function Navbar() {
               <div
                 key={link.name}
                 className="relative"
-                onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
+                onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <motion.a
-                  href={link.href || '#'}
-                  className="flex items-center gap-1 px-3 py-2 text-sm text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  {link.name}
-                  {link.hasDropdown && <ChevronDown className="w-3 h-3" />}
-                </motion.a>
+                {link.dropdown ? (
+                  <button
+                    type="button"
+                    className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm transition-colors ${
+                      location.pathname.startsWith(link.to)
+                        ? 'bg-white/10 text-white'
+                        : 'text-white/70 hover:bg-white/5 hover:text-white'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    <ChevronDown className="h-3 w-3" />
+                  </button>
+                ) : (
+                  <NavLink
+                    to={link.to}
+                    className={({ isActive }) =>
+                      `flex items-center gap-1 rounded-md px-3 py-2 text-sm transition-colors ${
+                        isActive
+                          ? 'bg-white/10 text-white'
+                          : 'text-white/70 hover:bg-white/5 hover:text-white'
+                      }`
+                    }
+                  >
+                    <motion.span whileHover={{ scale: 1.02 }}>{link.name}</motion.span>
+                  </NavLink>
+                )}
 
-                {/* Dropdown */}
                 <AnimatePresence>
-                  {link.hasDropdown && activeDropdown === link.name && (
+                  {link.dropdown && activeDropdown === link.name && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
+                      exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-64 glass rounded-xl p-2 shadow-2xl"
+                      className="glass absolute left-0 top-full mt-2 w-64 rounded-xl p-2 shadow-2xl"
                     >
-                      <div className="p-3 text-sm text-white/50">
-                        {link.name === 'Servidor' ? (
-                          <div className="space-y-2">
-                            <div className="p-2 hover:bg-white/5 rounded-lg cursor-pointer">
-                              <div className="text-white">Información</div>
-                              <div className="text-xs text-white/50">Detalles del servidor</div>
-                            </div>
-                            <div className="p-2 hover:bg-white/5 rounded-lg cursor-pointer">
-                              <div className="text-white">Conexión</div>
-                              <div className="text-xs text-white/50">Cómo conectarte</div>
-                            </div>
-                            <div className="p-2 hover:bg-white/5 rounded-lg cursor-pointer">
-                              <div className="text-white">Rutas</div>
-                              <div className="text-xs text-white/50">Explora el mapa</div>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="space-y-2">
-                            <div className="p-2 hover:bg-white/5 rounded-lg cursor-pointer">
-                              <div className="text-white">Guías</div>
-                              <div className="text-xs text-white/50">Aprende a jugar</div>
-                            </div>
-                            <div className="p-2 hover:bg-white/5 rounded-lg cursor-pointer">
-                              <div className="text-white">Mods</div>
-                              <div className="text-xs text-white/50">Descargas disponibles</div>
-                            </div>
-                            <div className="p-2 hover:bg-white/5 rounded-lg cursor-pointer">
-                              <div className="text-white">FAQ</div>
-                              <div className="text-xs text-white/50">Preguntas frecuentes</div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
+                      {link.dropdown.map((item) => (
+                        <NavLink
+                          key={item.name}
+                          to={item.to}
+                          className="block rounded-lg px-3 py-2 transition-colors hover:bg-white/5"
+                        >
+                          <div className="text-sm text-white">{item.name}</div>
+                          <div className="text-xs text-white/50">{item.description}</div>
+                        </NavLink>
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -120,11 +152,13 @@ export default function Navbar() {
           {/* Auth Buttons */}
           <div className="flex items-center gap-3">
             <motion.a
-              href="#login"
+              href="https://discord.gg/c8jMp8ee7s"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:block text-sm text-white/70 hover:text-white transition-colors"
               whileHover={{ scale: 1.02 }}
             >
-              Iniciar sesión
+              Unirte Discord
             </motion.a>
             <motion.a
               href="#signup"
@@ -134,8 +168,60 @@ export default function Navbar() {
             >
               Descargar Launcher
             </motion.a>
+
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-md border border-white/10 p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white md:hidden"
+              onClick={() => setMobileOpen((prev) => !prev)}
+              aria-label="Abrir menu"
+            >
+              {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
           </div>
         </div>
+
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="glass mb-3 rounded-xl border border-white/10 p-2 md:hidden"
+            >
+              {navLinks.map((link) => (
+                <div key={link.name} className="mb-1 last:mb-0">
+                  <NavLink
+                    to={link.to}
+                    className={({ isActive }) =>
+                      `block rounded-lg px-3 py-2 text-sm transition-colors ${
+                        isActive
+                          ? 'bg-white/10 text-white'
+                          : 'text-white/70 hover:bg-white/5 hover:text-white'
+                      }`
+                    }
+                  >
+                    {link.name}
+                  </NavLink>
+
+                  {link.dropdown && (
+                    <div className="mt-1 space-y-1 pl-3">
+                      {link.dropdown.map((item) => (
+                        <NavLink
+                          key={item.name}
+                          to={item.to}
+                          className="block rounded-md px-3 py-1.5 text-xs text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                        >
+                          {item.name}
+                        </NavLink>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </motion.header>
   );
