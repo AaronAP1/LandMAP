@@ -93,7 +93,7 @@ const reveal = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.25 },
-  transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.55 },
 };
 
 export default function ServerPage() {
@@ -210,7 +210,7 @@ export default function ServerPage() {
             <motion.div
               key={capability.title}
               {...reveal}
-              transition={{ duration: 0.55, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.55, delay: index * 0.1 }}
               className="rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-6 text-left"
             >
               <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded bg-white/10">
@@ -240,7 +240,7 @@ export default function ServerPage() {
             <motion.div
               key={member.name}
               {...reveal}
-              transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.55, delay: index * 0.08 }}
               className="rounded-xl border border-white/10 bg-white/[0.02] p-6 text-center transition hover:bg-white/[0.05]"
             >
               <div className={`inline-block rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${member.badgeBg}`}>

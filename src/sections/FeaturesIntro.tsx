@@ -44,7 +44,7 @@ export default function FeaturesIntro() {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7 }}
             className="relative mb-16 overflow-hidden"
           >
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-black to-transparent" />
@@ -70,7 +70,7 @@ export default function FeaturesIntro() {
             initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.85, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.85, delay: 0.08 }}
             className="max-w-6xl text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:text-4xl md:text-5xl"
           >
             Una gran variedad de buses.
@@ -85,7 +85,7 @@ Diferentes marcas, generaciones y configuraciones para una experiencia de conduc
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
@@ -103,7 +103,7 @@ Diferentes marcas, generaciones y configuraciones para una experiencia de conduc
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
               className="relative group"
             >
               <div className="relative p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
@@ -132,7 +132,7 @@ Diferentes marcas, generaciones y configuraciones para una experiencia de conduc
           initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.85 }}
           className="mt-24 border-t border-white/10 pt-16"
         >
           <div className="grid gap-10 md:grid-cols-[1.15fr_1fr] md:gap-14">

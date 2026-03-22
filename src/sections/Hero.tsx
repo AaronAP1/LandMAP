@@ -33,7 +33,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.2 }}
           className="pointer-events-none absolute top-0 right-0 z-10 hidden lg:block lg:w-[400px] xl:w-[460px]"
         >
           <div className="relative" style={{ transform: 'translateY(-220px)' }}>
@@ -62,7 +62,7 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8 }}
               >
                 <h1 className="group mb-6 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-6xl">
                   <span className="text-white transition-all duration-300 group-hover:text-red-400 group-hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">AndesMP</span>{' '}
@@ -76,7 +76,7 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               className="max-w-xl text-base text-white/50"
             >
               Entra, conecta y disfruta rutas tranquilas, eventos casuales y una comunidad activa sin drama.
@@ -85,7 +85,7 @@ export default function Hero() {
             <motion.a
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               href="#diffs"
               className="group inline-flex items-center gap-2 whitespace-nowrap px-3 py-1.5 text-sm text-white/60 transition-colors hover:text-white sm:ml-4"
             >
@@ -104,7 +104,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, delay: 0.3 }}
           className="relative mx-auto max-w-6xl"
         >
           <div className="absolute inset-0 scale-110 bg-gradient-radial from-blue-500/[0.12] via-blue-500/[0.03] to-transparent blur-3xl" />

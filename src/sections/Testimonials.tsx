@@ -62,7 +62,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.75, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.75, delay: index * 0.12 }}
               className={`relative flex flex-col justify-between overflow-hidden ${t.rounded} p-9 sm:p-11`}
               style={{ minHeight: t.minH, ...t.style }}
             >

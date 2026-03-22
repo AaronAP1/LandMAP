@@ -36,7 +36,7 @@ export default function Changelog() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8 }}
           className="mb-12"
         >
           <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
@@ -51,7 +51,7 @@ export default function Changelog() {
               href="#changelog"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="block p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all group"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
@@ -72,7 +72,7 @@ export default function Changelog() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-8"
         >
           <a
