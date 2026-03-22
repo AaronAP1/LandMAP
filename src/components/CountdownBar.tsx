@@ -8,8 +8,50 @@ type CountdownParts = {
   completed: boolean;
 };
 
+const COUNTDOWN_STORAGE_KEY = 'andesmp-countdown-target-peru';
+const PERU_TIME_ZONE = 'America/Lima';
+
+function getNowInPeruMs(): number {
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: PERU_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+
+  const parts = formatter.formatToParts(new Date());
+  const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((p) => p.type === type)?.value ?? '00';
+
+  const year = Number(part('year'));
+  const month = Number(part('month'));
+  const day = Number(part('day'));
+  const hour = Number(part('hour'));
+  const minute = Number(part('minute'));
+  const second = Number(part('second'));
+
+  return Date.UTC(year, month - 1, day, hour, minute, second);
+}
+
+function getPersistentTargetMs(): number {
+  const stored = window.localStorage.getItem(COUNTDOWN_STORAGE_KEY);
+  const storedNumber = stored ? Number(stored) : NaN;
+  const peruNow = getNowInPeruMs();
+
+  if (Number.isFinite(storedNumber) && storedNumber > peruNow) {
+    return storedNumber;
+  }
+
+  const target = peruNow + 5 * 24 * 60 * 60 * 1000;
+  window.localStorage.setItem(COUNTDOWN_STORAGE_KEY, String(target));
+  return target;
+}
+
 function getCountdownParts(targetMs: number): CountdownParts {
-  const now = Date.now();
+  const now = getNowInPeruMs();
   const distance = Math.max(targetMs - now, 0);
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -36,7 +78,7 @@ function ClockItem({ value, label }: { value: number; label: string }) {
 }
 
 export default function CountdownBar() {
-  const targetMs = useMemo(() => Date.now() + 5 * 24 * 60 * 60 * 1000, []);
+  const targetMs = useMemo(() => getPersistentTargetMs(), []);
   const [remaining, setRemaining] = useState<CountdownParts>(() => getCountdownParts(targetMs));
 
   useEffect(() => {
@@ -52,7 +94,7 @@ export default function CountdownBar() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 border border-white/20 bg-[#101010]/95 px-3 py-3 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:px-4">
         <div className="text-center sm:text-left">
           <p className="text-xs uppercase tracking-[0.2em] text-emerald-400">Cuenta regresiva</p>
-          <p className="text-sm text-white/75">Cierre del evento en vivo</p>
+          <p className="text-sm text-white/75">Apertura Oficial</p>
         </div>
 
         {remaining.completed ? (
