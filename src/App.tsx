@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar';
+import CountdownBar from './components/CountdownBar';
 import Hero from './sections/Hero';
 import FeaturesIntro from './sections/FeaturesIntro';
 import Intake from './sections/Intake';
@@ -12,7 +13,8 @@ function App() {
   return (
     <div className="min-h-screen bg-[#090909] text-white">
       <Navbar />
-      <main>
+      <CountdownBar />
+      <main className="pt-32">
         <Hero />
         <FeaturesIntro />
         <Intake />
