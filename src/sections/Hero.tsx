@@ -15,7 +15,7 @@ import andesMpBanner from '../img/0315-slow.gif';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-[#0d0d0d] pb-16 pt-24">
+    <section className="relative min-h-screen bg-[#0d0d0d] pb-16 pt-12 sm:pt-20 lg:pt-24">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent" />
       <div
         className="pointer-events-none absolute inset-0"
@@ -54,7 +54,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative mb-12 mt-60">
+        <div className="relative mb-12 mt-20 sm:mt-36 lg:mt-60">
 
           <div>
             {/* Left: text */}
@@ -72,12 +72,12 @@ export default function Hero() {
                 </h1>
               </motion.div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base text-white/50"
+              className="max-w-xl text-base text-white/50"
             >
               Entra, conecta y disfruta rutas tranquilas, eventos casuales y una comunidad activa sin drama.
             </motion.p>
@@ -87,7 +87,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               href="#diffs"
-              className="group ml-auto inline-flex items-center gap-2 whitespace-nowrap px-3 py-1.5 text-sm text-white/60 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-2 whitespace-nowrap px-3 py-1.5 text-sm text-white/60 transition-colors hover:text-white sm:ml-4"
             >
               <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2 py-0.5 text-xs font-medium text-emerald-400">
                 <Sparkles className="h-3 w-3" />
@@ -188,13 +188,13 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#1a2c4a] bg-[#08152c] p-4 sm:px-8">
+                <div className="flex flex-col items-stretch gap-3 border-t border-[#1a2c4a] bg-[#08152c] p-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
                   <button className="inline-flex items-center gap-2 rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600">
                     <Download className="h-4 w-4" />
                     Descargar mods
                   </button>
 
-                  <button className="inline-flex min-w-[180px] items-center justify-center gap-2 rounded-lg bg-[#273754] px-6 py-3 text-lg font-bold text-slate-200 transition hover:bg-[#30466a]">
+                  <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#273754] px-6 py-3 text-lg font-bold text-slate-200 transition hover:bg-[#30466a] sm:w-auto sm:min-w-[180px]">
                     <Play className="h-4 w-4" fill="currentColor" />
                     JUGAR
                   </button>

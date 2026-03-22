@@ -49,10 +49,11 @@ export default function Plan() {
           >
             <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl">
               {/* Modes Header */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#0d0d0d]">
-                <div className="flex items-center gap-4">
-                  {modes.map((mode, i) => (
-                    <div key={mode} className="text-center">
+              <div className="border-b border-white/5 bg-[#0d0d0d] px-4 py-3">
+                <div className="overflow-x-auto">
+                  <div className="flex min-w-max items-center gap-4 pr-2">
+                    {modes.map((mode, i) => (
+                      <div key={mode} className="min-w-[56px] text-center">
                       <div className="text-white/40 text-xs mb-1">{mode}</div>
                       <div className="flex gap-1">
                         {[1, 8, 15, 22].map((date) => (
@@ -62,7 +63,8 @@ export default function Plan() {
                         ))}
                       </div>
                     </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -90,11 +92,11 @@ export default function Plan() {
               </div>
 
               {/* Mode Timeline */}
-              <div className="p-4 border-t border-white/5">
+              <div className="border-t border-white/5 p-4">
                 <div className="space-y-3">
                   {roadmapItems.map((item, index) => (
                     <div key={item.name} className="relative">
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="mb-1 flex flex-wrap items-center gap-2">
                         <span className="text-white/40 text-xs">2.{index + 1}</span>
                         <span className="text-white/60 text-sm">{item.name}</span>
                         <span className="text-white/40 text-xs">{item.phase}</span>

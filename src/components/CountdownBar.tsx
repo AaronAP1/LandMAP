@@ -28,8 +28,8 @@ function getCountdownParts(targetMs: number): CountdownParts {
 
 function ClockItem({ value, label }: { value: number; label: string }) {
   return (
-    <div className="min-w-[64px] border border-white/15 bg-black/40 px-3 py-2 text-center">
-      <p className="text-xl font-semibold text-white tabular-nums">{String(value).padStart(2, '0')}</p>
+    <div className="border border-white/15 bg-black/40 px-2 py-1.5 text-center sm:min-w-[64px] sm:px-3 sm:py-2">
+      <p className="text-lg font-semibold text-white tabular-nums sm:text-xl">{String(value).padStart(2, '0')}</p>
       <p className="text-[10px] uppercase tracking-[0.16em] text-white/55">{label}</p>
     </div>
   );
@@ -49,16 +49,16 @@ export default function CountdownBar() {
 
   return (
     <div className="fixed left-0 right-0 top-16 z-40 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between border border-white/20 bg-[#101010]/95 px-4 py-3 backdrop-blur-md">
-        <div>
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 border border-white/20 bg-[#101010]/95 px-3 py-3 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:px-4">
+        <div className="text-center sm:text-left">
           <p className="text-xs uppercase tracking-[0.2em] text-emerald-400">Cuenta regresiva</p>
           <p className="text-sm text-white/75">Cierre del evento en vivo</p>
         </div>
 
         {remaining.completed ? (
-          <p className="text-sm font-medium text-white">El evento ya comenzo.</p>
+          <p className="text-center text-sm font-medium text-white sm:text-right">El evento ya comenzo.</p>
         ) : (
-          <div className="flex items-center gap-2">
+          <div className="grid w-full grid-cols-4 gap-1.5 sm:flex sm:w-auto sm:items-center sm:gap-2">
             <ClockItem value={remaining.days} label="dias" />
             <ClockItem value={remaining.hours} label="horas" />
             <ClockItem value={remaining.minutes} label="min" />

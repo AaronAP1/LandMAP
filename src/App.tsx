@@ -11,10 +11,10 @@ import Footer from './sections/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#090909] text-white">
+    <div className="min-h-screen overflow-x-hidden bg-[#090909] text-white">
       <Navbar />
       <CountdownBar />
-      <main className="pt-32">
+      <main className="pt-44 sm:pt-32">
         <Hero />
         <FeaturesIntro />
         <Intake />
