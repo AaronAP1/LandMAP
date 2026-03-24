@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import CountdownBar from './components/CountdownBar';
+import LauncherAlert from './components/LauncherAlert';
 import Hero from './sections/Hero';
 import FeaturesIntro from './sections/FeaturesIntro';
 import Intake from './sections/Intake';
@@ -44,10 +46,15 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 function App() {
   const location = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#090909] text-white">
       <Navbar />
       <CountdownBar />
+      <LauncherAlert />
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
