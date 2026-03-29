@@ -158,15 +158,16 @@ export default function Navbar() {
               className="hidden sm:block text-sm text-white/70 hover:text-white transition-colors"
               whileHover={{ scale: 1.02 }}
             >
-              Unirte Discord
+              Comunidad
             </motion.a>
             <motion.a
-              href="#signup"
+              href="https://discord.gg/c8jMp8ee7s"
+              target="_blank"
               className="px-4 py-2 text-sm font-medium text-black bg-emerald-500 rounded-md hover:bg-emerald-400 transition-colors"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Descargar Launcher
+              Unirte Discord
             </motion.a>
 
             <button
