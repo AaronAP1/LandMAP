@@ -2,6 +2,10 @@ type NavPageProps = {
   title: string;
   subtitle: string;
   description: string;
+  actionLinks?: Array<{
+    label: string;
+    href: string;
+  }>;
 };
 
 const quickCards = [
@@ -19,7 +23,7 @@ const quickCards = [
   },
 ];
 
-export default function NavPage({ title, subtitle, description }: NavPageProps) {
+export default function NavPage({ title, subtitle, description, actionLinks }: NavPageProps) {
   return (
     <main className="relative overflow-hidden px-4 pb-20 pt-44 sm:px-6 sm:pt-36 lg:px-8">
       <div className="pointer-events-none absolute inset-0">
@@ -37,17 +41,33 @@ export default function NavPage({ title, subtitle, description }: NavPageProps) 
         </div>
       </section>
 
-      <section className="mx-auto mt-8 grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {quickCards.map((card) => (
-          <article
-            key={card.title}
-            className="rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm transition-colors hover:border-emerald-300/40"
-          >
-            <h2 className="text-lg font-medium text-white">{card.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-white/65">{card.text}</p>
-          </article>
-        ))}
-      </section>
+      {actionLinks && actionLinks.length > 0 ? (
+        <section className="mx-auto mt-8 flex max-w-7xl flex-wrap gap-4">
+          {actionLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-w-[220px] items-center justify-center rounded-xl border border-emerald-300/35 bg-emerald-400/10 px-6 py-3 text-sm font-semibold text-emerald-100 transition-colors hover:border-emerald-200/70 hover:bg-emerald-400/20"
+            >
+              {link.label}
+            </a>
+          ))}
+        </section>
+      ) : (
+        <section className="mx-auto mt-8 grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {quickCards.map((card) => (
+            <article
+              key={card.title}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm transition-colors hover:border-emerald-300/40"
+            >
+              <h2 className="text-lg font-medium text-white">{card.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-white/65">{card.text}</p>
+            </article>
+          ))}
+        </section>
+      )}
     </main>
   );
 }

@@ -272,9 +272,12 @@ export default function ServerPage() {
           <p className="mt-4 text-sm text-white/70">
             Nuestro launcher oficial te instala todo automáticamente. Comienza a jugar en minutos.
           </p>
-          <button className="mt-6 rounded-lg bg-white px-6 py-2 text-sm font-semibold text-black transition hover:bg-white/90">
+            <button 
+            onClick={() => window.open('https://d1me2h6397dibs.cloudfront.net/AndesMP.exe', '_blank')}
+            className="mt-6 rounded-lg bg-white px-6 py-2 text-sm font-semibold text-black transition hover:bg-white/90"
+            >
             Descargar Launcher
-          </button>
+            </button>
         </div>
       </motion.section>
 

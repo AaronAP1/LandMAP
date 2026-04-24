@@ -114,6 +114,13 @@ function App() {
                   title="Contacto"
                   subtitle="Soporte y comunicacion directa"
                   description="Si necesitas ayuda o quieres enviar feedback, aqui tienes los canales para comunicarte con el equipo de AndesMP."
+                  actionLinks={[
+                    { label: 'Unirte a Discord', href: 'https://discord.gg/eYeqrj3PAx' },
+                    {
+                      label: 'Grupo de WhatsApp',
+                      href: 'https://chat.whatsapp.com/KwPuFTPy77j5sZOA8wVAb6',
+                    },
+                  ]}
                 />
               </PageTransition>
             }

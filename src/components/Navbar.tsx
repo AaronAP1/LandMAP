@@ -158,16 +158,19 @@ export default function Navbar() {
               className="hidden sm:block text-sm text-white/70 hover:text-white transition-colors"
               whileHover={{ scale: 1.02 }}
             >
-              Comunidad
+              Unirse a Discord
             </motion.a>
             <motion.a
-              href="https://discord.gg/c8jMp8ee7s"
-              target="_blank"
+              href="https://d1me2h6397dibs.cloudfront.net/AndesMP.exe"
+              download="AndesMP.exe"
+              rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-medium text-black bg-emerald-500 rounded-md hover:bg-emerald-400 transition-colors"
+              animate={{ opacity: [1, 0.78, 1] }}
+              transition={{ duration: 1.6, repeat: Infinity, repeatType: 'loop' }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Unirte Discord
+              Descargar Launcher
             </motion.a>
 
             <button
