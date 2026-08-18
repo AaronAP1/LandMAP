@@ -1,17 +1,10 @@
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  ChevronRight,
-  Download,
-  Gamepad2,
-  House,
-  Newspaper,
-  Play,
-  Settings,
   Sparkles,
-  UserCircle2,
 } from 'lucide-react';
-import andesMpBanner from '../img/0315-slow.gif';
+import andesMpBanner from '../img/ANDESMPServidorSimulacionets2.png';
+import banner from '../img/banner.jpg';
 
 export default function Hero() {
   return (
@@ -29,29 +22,37 @@ export default function Hero() {
       <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-gradient-radial from-white/[0.04] to-transparent blur-3xl" style={{ animationDelay: '1.5s' }} />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* GIF overlaid to the right, out of hero text flow */}
         <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
+          initial={{ opacity: 0, x: 60, y: -40 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           className="pointer-events-none absolute top-0 right-0 z-10 hidden lg:block lg:w-[400px] xl:w-[460px]"
         >
-          <div className="relative" style={{ transform: 'translateY(-220px)' }}>
-            <div
-              className="absolute -inset-6 opacity-70 blur-md"
+          <motion.div
+            className="relative"
+            style={{ transform: 'translateY(-220px)' }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <motion.div
+              className="absolute -inset-8 opacity-60 blur-2xl rounded-full"
               style={{
-                clipPath:
-                  'polygon(3% 10%, 11% 2%, 26% 6%, 40% 2%, 54% 7%, 69% 3%, 84% 8%, 95% 17%, 98% 34%, 94% 48%, 99% 64%, 93% 79%, 85% 94%, 70% 97%, 53% 93%, 37% 98%, 19% 92%, 8% 83%, 4% 67%, 1% 50%, 6% 33%)',
-                background:
-                  'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.28), rgba(255,255,255,0.03) 68%, transparent 100%)',
+                background: 'radial-gradient(circle at 50% 50%, rgba(255,69,0,0.4), rgba(59,130,246,0.2), transparent 70%)',
               }}
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.4, 0.7, 0.4]
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
-            <img
+            <motion.img
               src={andesMpBanner}
               alt="AndesMP – Servidor Peruano ETS2"
-              className="relative h-auto w-full mix-blend-screen drop-shadow-[0_12px_30px_rgba(0,0,0,0.45)]"
+              className="relative h-auto w-full drop-shadow-[0_12px_40px_rgba(255,69,0,0.3)]"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             />
-          </div>
+          </motion.div>
         </motion.div>
 
         <div className="relative mb-12 mt-20 sm:mt-36 lg:mt-60">
@@ -109,162 +110,13 @@ export default function Hero() {
         >
           <div className="absolute inset-0 scale-110 bg-gradient-radial from-blue-500/[0.12] via-blue-500/[0.03] to-transparent blur-3xl" />
 
-          <div className="relative overflow-hidden rounded-xl border border-blue-500/20 bg-[#060d1f] shadow-2xl">
-            <div className="flex items-center justify-between border-b border-[#1a2c4a] bg-[#071329] px-4 py-3">
-              <div className="flex items-center gap-3">
-                <div className="h-5 w-5 rounded-sm bg-gradient-to-br from-red-500 to-red-700" />
-                <span className="text-sm font-semibold text-white">AndesMP Launcher</span>
-              </div>
-              <div className="flex items-center gap-3 text-xs text-slate-400">
-                <span>v2.0</span>
-                <button className="rounded bg-white/5 px-2 py-1 hover:bg-white/10">_</button>
-                <button className="rounded bg-white/5 px-2 py-1 hover:bg-white/10">X</button>
-              </div>
-            </div>
-
-            <div className="flex flex-col lg:flex-row">
-              <aside className="w-full border-b border-[#1a2c4a] bg-[#101f39] lg:w-56 lg:border-b-0 lg:border-r">
-                <div className="border-b border-[#223a61] p-5">
-                  <div className="mb-2 text-3xl font-black tracking-tight text-white">ANDESMP</div>
-                  <p className="text-xs text-slate-300">Launcher oficial de la comunidad</p>
-                </div>
-
-                <div className="space-y-1 p-3">
-                  <LauncherSidebarItem icon={<House className="h-4 w-4" />} label="Inicio" active />
-                  <LauncherSidebarItem icon={<Gamepad2 className="h-4 w-4" />} label="AndesMP" />
-                  <LauncherSidebarItem icon={<Newspaper className="h-4 w-4" />} label="Noticias" />
-                </div>
-
-                <div className="mt-10 border-t border-[#223a61] p-3">
-                  <LauncherSidebarItem icon={<Settings className="h-4 w-4" />} label="Configuracion" />
-                  <LauncherSidebarItem
-                    icon={<UserCircle2 className="h-4 w-4" />}
-                    label="User profile"
-                    trailing={<ChevronRight className="h-3.5 w-3.5" />}
-                  />
-                </div>
-              </aside>
-
-              <main className="flex-1 bg-[#050d20]">
-                <div className="relative border-b border-[#1a2c4a] p-6 sm:p-8">
-                  <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(8,15,34,0.98)_45%,rgba(8,15,34,0.45)_100%)]" />
-                  <div className="absolute inset-y-0 right-0 w-[45%] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.28),transparent_70%)]" />
-
-                  <div className="relative max-w-2xl">
-                    <span className="inline-flex items-center rounded bg-red-600 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
-                      Servidor oficial
-                    </span>
-                    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-5xl">
-                      Bienvenido a AndesMP
-                    </h2>
-                    <p className="mt-3 max-w-xl text-sm text-slate-300 sm:text-xl sm:leading-8">
-                      Unete a la experiencia multijugador mas emocionante. Construye, explora y compite con jugadores de todo el mundo.
-                    </p>
-                    <button className="mt-6 inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-red-500">
-                      <Play className="h-4 w-4" fill="currentColor" />
-                      Jugar ahora
-                    </button>
-                  </div>
-                </div>
-
-                <div className="p-6 sm:p-8">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-3xl font-bold text-white">Noticias</h3>
-                    <button className="text-sm text-slate-300 hover:text-white">Ver todo</button>
-                  </div>
-
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <LauncherNewsCard
-                      badge="Nueva actualizacion"
-                      title="Nueva temporada disponible"
-                      summary="Cambios de economia, eventos semanales y rutas renovadas para la comunidad."
-                    />
-                    <LauncherNewsCard
-                      badge="Notas del parche"
-                      title="Version 2.0 lanzada"
-                      summary="Mejoras de rendimiento, nuevo sistema de mods y ajustes de estabilidad en convoy."
-                      alt
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-stretch gap-3 border-t border-[#1a2c4a] bg-[#08152c] p-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-                  <button className="inline-flex items-center gap-2 rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600">
-                    <Download className="h-4 w-4" />
-                    Descargar mods
-                  </button>
-
-                  <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#273754] px-6 py-3 text-lg font-bold text-slate-200 transition hover:bg-[#30466a] sm:w-auto sm:min-w-[180px]">
-                    <Play className="h-4 w-4" fill="currentColor" />
-                    JUGAR
-                  </button>
-                </div>
-              </main>
-            </div>
-          </div>
+          <img
+            src={banner}
+            alt="AndesMP Banner"
+            className="w-full rounded-xl border border-blue-500/20 shadow-2xl"
+          />
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function LauncherSidebarItem({
-  icon,
-  label,
-  active = false,
-  trailing,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  active?: boolean;
-  trailing?: React.ReactNode;
-}) {
-  return (
-    <button
-      className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-sm transition ${
-        active
-          ? 'bg-red-600/20 text-red-300 ring-1 ring-red-500/40'
-          : 'text-slate-300 hover:bg-white/5 hover:text-white'
-      }`}
-    >
-      <span className="flex items-center gap-2">
-        {icon}
-        {label}
-      </span>
-      {trailing}
-    </button>
-  );
-}
-
-function LauncherNewsCard({
-  badge,
-  title,
-  summary,
-  alt = false,
-}: {
-  badge: string;
-  title: string;
-  summary: string;
-  alt?: boolean;
-}) {
-  return (
-    <article
-      className={`group relative overflow-hidden rounded-xl border p-5 ${
-        alt
-          ? 'border-slate-600/70 bg-gradient-to-br from-slate-800 to-slate-700'
-          : 'border-red-900/70 bg-gradient-to-br from-[#2b0f16] to-[#111827]'
-      }`}
-    >
-      <div className="absolute -right-8 -top-10 h-36 w-36 rounded-full bg-white/10 blur-2xl" />
-      <span className="relative inline-flex rounded bg-blue-600 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
-        {badge}
-      </span>
-      <h4 className="relative mt-3 text-2xl font-extrabold leading-tight text-white">{title}</h4>
-      <p className="relative mt-2 text-sm text-slate-200">{summary}</p>
-      <button className="relative mt-4 inline-flex items-center gap-1 text-sm font-semibold text-white/90 transition group-hover:text-white">
-        Leer mas
-        <ChevronRight className="h-4 w-4" />
-      </button>
-    </article>
   );
 }

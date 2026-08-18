@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ROOM_ID = '85568392936136396';
+const ROOM_ID = '85568392936601477';
 
 export default function CountdownBar() {
   const [copied, setCopied] = useState(false);

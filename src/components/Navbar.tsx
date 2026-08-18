@@ -161,8 +161,8 @@ export default function Navbar() {
               Unirse a Discord
             </motion.a>
             <motion.a
-              href="https://d1me2h6397dibs.cloudfront.net/AndesMP.exe"
-              download="AndesMP.exe"
+              href="https://andesmap.s3.us-east-2.amazonaws.com/Ejecutable/HubANDES_Setup_1.6.0.exe"
+              download="HubANDES_Setup_1.5.0.exe"
               rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-medium text-black bg-emerald-500 rounded-md hover:bg-emerald-400 transition-colors"
               animate={{ opacity: [1, 0.78, 1] }}
@@ -170,7 +170,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Descargar Launcher
+              Descargar HUBAndes
             </motion.a>
 
             <button
