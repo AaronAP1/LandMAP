@@ -2,19 +2,19 @@ import { motion } from 'framer-motion';
 
 const features = [
   {
-    figure: 'V0 0.1',
-    title: 'Variedad de Mapas',
-    description: 'La forma de cambiar y probar semanalmente nuevos mapas ',
+    figure: 'V1.0.1',
+    title: 'Expansion de Mapa',
+    description: 'La forma de expandir y remodelar ciudades.',
   },
   {
-    figure: 'V0 0.2',
-    title: 'Mapa DEFINITIVO',
-    description: 'Mientras se trabaja en el mapa definitivo, se lanzarán mapas semanales para que la comunidad pueda disfrutar de nuevas experiencias de conducción cada semana.',
+    figure: 'V1.0.2',
+    title: 'Mapa AndesTeam',
+    description: 'Construimos con una base, expandimos y ampliamos para todos.',
   },
   {
-    figure: 'V0 0.3',
-    title: 'Es un simulador ETS2',
-    description: 'Compartimos la misma pasión por la simulación, pero con un enfoque en la comunidad y la colaboración.',
+    figure: 'V1.0.3',
+    title: 'Euro Truck Simulator 2',
+    description: 'Construimos un mapa decente para todos, para disfrutar en conjunto',
   },
 ];
 
@@ -92,7 +92,7 @@ Diferentes marcas, generaciones y configuraciones para una experiencia de conduc
             Una nueva forma de Simular.
           </h2>
           <p className="text-lg text-white/50 max-w-2xl mx-auto">
-            Diseñado por jugadores para jugadores, descubre la forma definitiva de experimentar la simulación en mapas peruanos.
+            Diseñado por jugadores para jugadores, descubre la forma definitiva de experimentar la simulación en un mapa peruano.
           </p>
         </motion.div>
 

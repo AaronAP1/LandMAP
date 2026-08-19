@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { DISCORD_URL } from '../lib/links';
 
 const businessFeatures = [
   {
@@ -13,7 +15,7 @@ const businessFeatures = [
 ];
 
 const partners = [
-  'NVIDIA',
+  'VULTR',
   'CLOUDFLARE',
   'AMAZON AWS',
   'INTEL'
@@ -21,7 +23,7 @@ const partners = [
 
 const platformFeatures = [
   {
-    title: 'Launcher Propio',
+    title: 'Hub oficial',
     description: 'Cliente oficial optimizado para descargas rápidas y actualizaciones automáticas.'
   },
   {
@@ -40,8 +42,8 @@ const platformFeatures = [
 
 const serverCapabilities = [
   {
-    title: 'Mapas Variados',
-    description: 'Rotación semanal y temporada de mapas únicos: urbanos, panorámicos y técnicos.'
+    title: 'Mapa Variado',
+    description: 'Expansion semanal y temporada de mapas únicos: urbanos, panorámicos y técnicos.'
   },
   {
     title: 'Eventos ',
@@ -52,7 +54,7 @@ const serverCapabilities = [
     description: 'El equipo escucha activamente el feedback para mejorar continuamente la experiencia de juego.'
   },
   {
-    title: 'Launcher AndesMP',
+    title: 'Hub AndesMP',
     description: 'Cliente oficial optimizado que descarga y actualiza todo automáticamente.'
   },
   {
@@ -61,32 +63,43 @@ const serverCapabilities = [
   },
   {
     title: 'Contenido Mensual',
-    description: 'Nuevos mapas, eventos y características cada mes para experiencia fresca.'
+    description: 'Características cada mes para experiencia fresca.'
   }
 ];
 
-const staffMembers = [
+type StaffMember = {
+  name: string;
+  role: string;
+  /** Area de la que se encarga, mostrada bajo el nombre. */
+  focus: string;
+  discord: string;
+};
+
+const staffMembers: StaffMember[] = [
   {
-    role: 'Fundador Andes MP',
     name: 'Bless',
-    discord: 'Linux#0001',
-    badge: 'rose',
-    badgeBg: 'border-rose-500/50 bg-rose-500/5'
+    role: 'Software',
+    focus: 'Desarrollo del HUB y de la infraestructura del servidor.',
+    discord: 'noraaax',
   },
   {
-    role: 'Fundador Andes MP',
     name: 'Juan de Dios',
-    discord: 'Luiz2510#0001',
-    badge: 'rose',
-    badgeBg: 'border-rose-500/50 bg-rose-500/5'
+    role: 'Mods',
+    focus: 'Carrocerias, packs de vehiculos y compatibilidad entre versiones.',
+    discord: 'juandedios7416',
   },
   {
-    role: 'Fundador Andes MP',
     name: 'Diosito',
-    discord: 'TSA#0001',
-    badge: 'rose',
-    badgeBg: 'border-rose-500/50 bg-rose-500/5'
-  }
+    role: 'Mapeador',
+    focus: 'Construccion y rotacion de los mapas del servidor.',
+    discord: 'diosfb',
+  },
+  {
+    name: 'Angel',
+    role: 'Mods',
+    focus: 'Skins de empresas y revision del contenido que entra al HUB.',
+    discord: 'angel_22i_00111',
+  },
 ];
 
 const reveal = {
@@ -235,26 +248,59 @@ export default function ServerPage() {
           Conoce al dedicado staff que mantiene Andes MP funcionando sin problemas.
         </p>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {staffMembers.map((member, index) => (
-            <motion.div
+            <motion.article
               key={member.name}
               {...reveal}
               transition={{ duration: 0.55, delay: index * 0.08 }}
-              className="rounded-xl border border-white/10 bg-white/[0.02] p-6 text-center transition hover:bg-white/[0.05]"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-left transition-colors duration-300 hover:border-[#e0512f]/40 hover:bg-white/[0.04]"
             >
-              <div className={`inline-block rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${member.badgeBg}`}>
-                <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-                  {member.role}
+              {/* Brillo que aparece al pasar el cursor */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#e0512f]/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+              />
+
+              <div className="relative flex items-start justify-between gap-3">
+                {/* Monograma */}
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e0512f]/40 bg-[#e0512f]/10 text-lg font-semibold text-[#f0603c] transition-colors duration-300 group-hover:border-[#e0512f]/70 group-hover:bg-[#e0512f]/20">
+                  {member.name.charAt(0)}
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/30">
+                  0{index + 1}
                 </span>
               </div>
-              <h3 className="mt-4 text-lg font-bold text-white">{member.name}</h3>
-              <p className="mt-2 text-xs text-white/60">Perfil</p>
-              <button className="mt-4 rounded-md border border-cyan-400/50 bg-cyan-400/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-300 transition hover:bg-cyan-400/20">
-                
-              </button>
-            </motion.div>
+
+              <p className="relative mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-[#e0512f]">
+                {member.role}
+              </p>
+              <h3 className="relative mt-2 text-xl font-semibold tracking-[-0.02em] text-white">
+                {member.name}
+              </h3>
+              <p className="relative mt-3 flex-1 text-sm leading-relaxed text-white/55">
+                {member.focus}
+              </p>
+
+              <div className="relative mt-6 border-t border-white/10 pt-4">
+                <p className="font-mono text-[11px] text-white/40">
+                  {member.discord}
+                </p>
+              </div>
+            </motion.article>
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-white/60 transition-colors hover:text-white"
+          >
+            Contactar al staff en Discord
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
         </div>
       </motion.section>
 

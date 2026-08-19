@@ -1,25 +1,56 @@
-const footerColumns = [
+import { Link } from 'react-router-dom';
+import {
+  DISCORD_URL,
+  HUB_DOWNLOAD_URL,
+  WHATSAPP_URL,
+  ROUTES,
+} from '../lib/links';
+
+type FooterLink = { name: string; to?: string; href?: string };
+
+const footerColumns: FooterLink[][] = [
   [
-    { name: 'Descargar', href: '#download' },
-    { name: 'Producto', href: '#product' },
-    { name: 'Docs', href: '#docs' },
-    { name: 'Novedades', href: '#updates' },
-    { name: 'Auspicios', href: '#press' },
-    { name: 'Novedades', href: '#releases' },
+    { name: 'Descargar HUB', href: HUB_DOWNLOAD_URL },
+    { name: 'Servidor', to: ROUTES.servidor },
+    { name: 'Guias', to: ROUTES.guias },
+    { name: 'Mods', to: ROUTES.mods },
+    { name: 'Eventos', to: ROUTES.eventos },
   ],
   [
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contacto', href: '#contact' },
-    { name: 'Casos de uso', href: '#use-cases' },
+    { name: 'Comunidad', to: ROUTES.comunidad },
+    { name: 'Reglas', to: ROUTES.reglas },
+    { name: 'Contacto', to: ROUTES.contacto },
+    { name: 'Discord', href: DISCORD_URL },
+    { name: 'WhatsApp', href: WHATSAPP_URL },
   ],
 ];
 
-const bottomLinks = [
-  { name: 'About AndesMP', href: '#about' },
-  { name: 'Empresas', href: '#product' },
-  { name: 'Privacidad', href: '#privacy' },
-  { name: 'Términos', href: '#terms' },
+const bottomLinks: FooterLink[] = [
+  { name: 'Sobre AndesMP', to: ROUTES.servidor },
+  { name: 'Empresas VTC', to: ROUTES.comunidad },
+  { name: 'Reglas', to: ROUTES.reglas },
+  { name: 'FAQ', to: ROUTES.faq },
 ];
+
+function FooterItem({ link, className }: { link: FooterLink; className: string }) {
+  if (link.href) {
+    return (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {link.name}
+      </a>
+    );
+  }
+  return (
+    <Link to={link.to ?? ROUTES.home} className={className}>
+      {link.name}
+    </Link>
+  );
+}
 
 export default function Footer() {
   return (
@@ -37,9 +68,10 @@ export default function Footer() {
               <ul key={index} className="space-y-3 text-base sm:text-lg">
                 {column.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-white/82 transition-colors hover:text-white">
-                      {link.name}
-                    </a>
+                    <FooterItem
+                      link={link}
+                      className="text-white/82 transition-colors hover:text-white"
+                    />
                   </li>
                 ))}
               </ul>
@@ -58,9 +90,11 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             {bottomLinks.map((link) => (
-              <a key={link.name} href={link.href} className="transition-colors hover:text-white">
-                {link.name}
-              </a>
+              <FooterItem
+                key={link.name}
+                link={link}
+                className="transition-colors hover:text-white"
+              />
             ))}
           </div>
         </div>

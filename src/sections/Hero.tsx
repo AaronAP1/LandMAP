@@ -1,120 +1,261 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  Sparkles,
-} from 'lucide-react';
-import andesMpBanner from '../img/ANDESMPServidorSimulacionets2.png';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import andesMpLogo from '../img/ANDESMPServidorSimulacionets2.png';
 import banner from '../img/banner.jpg';
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const DISCORD_URL = 'https://discord.gg/eYeqrj3PAx';
+const HUB_URL =
+  'https://andesmap.s3.us-east-2.amazonaws.com/Ejecutable/HubANDES_Setup_1.6.0.exe';
+
+type Showcase = {
+  id: string;
+  tab: string;
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+};
+
+const SHOWCASES: Showcase[] = [
+  {
+    id: 'g6',
+    tab: 'Marcopolo G6',
+    title: 'Marcopolo G6',
+    description:
+      'La generacion clasica de la ruta peruana. Ideal para convoys largos y viajes nocturnos entre regiones.',
+    tags: ['Interprovincial', 'Clasico', 'Convoy'],
+    image: banner,
+  },
+  {
+    id: 'g7',
+    tab: 'Marcopolo G7',
+    title: 'Marcopolo G7',
+    description:
+      'El bus mas usado del servidor. Equilibrio entre maniobrabilidad en ciudad y comodidad en carretera.',
+    tags: ['Interprovincial', 'Popular', 'Ruta larga'],
+    image: banner,
+  },
+  {
+    id: 'g8',
+    tab: 'Marcopolo G8',
+    title: 'Marcopolo G8',
+    description:
+      'La generacion mas nueva, con acabados modernos y presencia pensada para las flotas premium de las empresas VTC.',
+    tags: ['Premium', 'Flota VTC', 'Nuevo'],
+    image: banner,
+  },
+  {
+    id: 'busstar',
+    tab: 'Busstar',
+    title: 'Busscar Busstar',
+    description:
+      'Carroceria robusta para rutas de sierra. Pensada para tramos exigentes y horarios de alta demanda.',
+    tags: ['Sierra', 'Robusto', 'Alta demanda'],
+    image: banner,
+  },
+  {
+    id: 'comil',
+    tab: 'Comil',
+    title: 'Comil',
+    description:
+      'Alternativa versatil dentro del servidor, con variantes que encajan tanto en rutas cortas como en servicios especiales.',
+    tags: ['Versatil', 'Ruta corta', 'Especial'],
+    image: banner,
+  },
+  {
+    id: 'camiones',
+    tab: 'Camiones',
+    title: 'Camiones',
+    description:
+      'Para quienes prefieren la carga antes que el pasaje. Trabajo logistico dentro del mismo mapa y las mismas rutas.',
+    tags: ['Carga', 'Logistica', 'Trabajo'],
+    image: banner,
+  },
+  {
+    id: 'minivans',
+    tab: 'Minivans',
+    title: 'Minivans',
+    description:
+      'Unidades ligeras para trayectos urbanos y conexiones rapidas entre ciudades del mapa.',
+    tags: ['Urbano', 'Ligero', 'Conexion'],
+    image: banner,
+  },
+];
+
+const META_LEFT = '+ Comunidad peruana de simulacion en ETS2';
+const META_RIGHT = ['+ Semana de pruebas activa', '+ Rutas, Empresas, Convoys'];
+
 export default function Hero() {
+  const [activeId, setActiveId] = useState(SHOWCASES[1].id);
+  const active = SHOWCASES.find((item) => item.id === activeId) ?? SHOWCASES[0];
+
   return (
-    <section className="relative min-h-screen bg-[#0d0d0d] pb-16 pt-12 sm:pt-20 lg:pt-24">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 50%, transparent 100%)',
-        }}
-      />
+    <section className="relative overflow-hidden bg-[#0a0a0a] pb-20 pt-12 sm:pb-28 sm:pt-20">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(80%_60%_at_70%_0%,rgba(224,81,47,0.10),transparent_70%)]" />
 
-      <div className="absolute left-1/4 top-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-gradient-radial from-white/[0.04] to-transparent blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-gradient-radial from-white/[0.04] to-transparent blur-3xl" style={{ animationDelay: '1.5s' }} />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, x: 60, y: -40 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="pointer-events-none absolute top-0 right-0 z-10 hidden lg:block lg:w-[400px] xl:w-[460px]"
-        >
+      <div className="relative mx-auto w-full max-w-[1200px] px-5 sm:px-8">
+        {/* Fila 1: titular + logo */}
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
           <motion.div
-            className="relative"
-            style={{ transform: 'translateY(-220px)' }}
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE }}
+            className="max-w-[34rem]"
           >
-            <motion.div
-              className="absolute -inset-8 opacity-60 blur-2xl rounded-full"
-              style={{
-                background: 'radial-gradient(circle at 50% 50%, rgba(255,69,0,0.4), rgba(59,130,246,0.2), transparent 70%)',
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.4, 0.7, 0.4]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
+            <h1 className="text-[26px] font-normal leading-[1.22] tracking-[-0.03em] text-white sm:text-[32px] lg:text-[38px]">
+              Servidor peruano de ETS2 con rutas reales, empresas VTC y convoys.
+              Conduce, disfruta y respeta en comunidad.
+            </h1>
+
+            <div className="mt-8 flex flex-wrap items-center gap-2">
+              <a
+                href={HUB_URL}
+                rel="noopener noreferrer"
+                className="rounded-md bg-[#e0512f] px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#f0603c]"
+              >
+                Descargar HUB
+              </a>
+              <a
+                href={DISCORD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md border border-white/10 px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.1em] text-white/80 transition-colors hover:border-white/25 hover:text-white"
+              >
+                Unirse a Discord
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: -16, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
+            className="justify-self-start lg:justify-self-end"
+          >
             <motion.img
-              src={andesMpBanner}
-              alt="AndesMP – Servidor Peruano ETS2"
-              className="relative h-auto w-full drop-shadow-[0_12px_40px_rgba(255,69,0,0.3)]"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              src={andesMpLogo}
+              alt="AndesMP - servidor peruano de simulacion ETS2"
+              className="h-auto w-[190px] select-none sm:w-[240px] lg:w-[300px] xl:w-[340px]"
+              draggable={false}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
             />
           </motion.div>
-        </motion.div>
-
-        <div className="relative mb-12 mt-20 sm:mt-36 lg:mt-60">
-
-          <div>
-            {/* Left: text */}
-            <div className="max-w-2xl">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h1 className="group mb-6 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-6xl">
-                  <span className="text-white transition-all duration-300 group-hover:text-red-400 group-hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">AndesMP</span>{' '}
-                  servidor
-                  <br />
-                  para rodar en comunidad
-                </h1>
-              </motion.div>
-
-              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="max-w-xl text-base text-white/50"
-            >
-              Entra, conecta y disfruta rutas tranquilas, eventos casuales y una comunidad activa sin drama.
-            </motion.p>
-
-            <motion.a
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              href="#diffs"
-              className="group inline-flex items-center gap-2 whitespace-nowrap px-3 py-1.5 text-sm text-white/60 transition-colors hover:text-white sm:ml-4"
-            >
-              <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2 py-0.5 text-xs font-medium text-emerald-400">
-                <Sparkles className="h-3 w-3" />
-                Muy Pronto
-              </span>
-              Estado del servidor AndesMP
-              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-            </motion.a>
-          </div>
-            </div>{/* end text */}
-          </div>
         </div>
 
+        {/* Fila 2: metadatos */}
         <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="relative mx-auto max-w-6xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="mt-12 grid gap-3 text-[12px] leading-relaxed text-white/35 sm:mt-16 sm:grid-cols-2"
         >
-          <div className="absolute inset-0 scale-110 bg-gradient-radial from-blue-500/[0.12] via-blue-500/[0.03] to-transparent blur-3xl" />
+          <p>{META_LEFT}</p>
+          <div className="space-y-1">
+            {META_RIGHT.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
+        </motion.div>
 
-          <img
-            src={banner}
-            alt="AndesMP Banner"
-            className="w-full rounded-xl border border-blue-500/20 shadow-2xl"
-          />
+        {/* Fila 3: selector de carrocerias */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
+          className="-mx-5 mt-8 overflow-x-auto px-5 [scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden"
+        >
+          <div
+            role="tablist"
+            aria-label="Carrocerias disponibles"
+            className="grid min-w-max auto-cols-[minmax(140px,1fr)] grid-flow-col border-y border-white/10 sm:min-w-0 sm:auto-cols-fr"
+          >
+            {SHOWCASES.map((item) => {
+              const isActive = item.id === active.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveId(item.id)}
+                  className={`relative border-l border-white/10 px-4 py-6 text-center text-[13px] transition-colors first:border-l-0 sm:py-8 ${
+                    isActive
+                      ? 'bg-white/[0.05] text-white'
+                      : 'text-white/45 hover:bg-white/[0.02] hover:text-white/75'
+                  }`}
+                >
+                  {item.tab}
+                  {isActive && (
+                    <motion.span
+                      layoutId="hero-tab-underline"
+                      className="absolute inset-x-0 bottom-0 h-px bg-[#e0512f]"
+                      transition={{ duration: 0.35, ease: EASE }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Fila 4: tarjeta destacada */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.35, ease: EASE }}
+          className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]"
+        >
+          <div className="relative aspect-[4/5] w-full sm:aspect-[16/9] lg:aspect-[16/8]">
+            <motion.img
+              key={`img-${active.id}`}
+              src={active.image}
+              alt={active.title}
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+
+            <motion.div
+              key={`copy-${active.id}`}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: EASE }}
+              className="absolute inset-x-0 bottom-0 p-5 sm:p-8 lg:p-10"
+            >
+              <div className="mb-3 flex flex-wrap gap-2">
+                {active.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-white/70 backdrop-blur-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <h2 className="text-xl font-medium tracking-[-0.02em] text-white sm:text-2xl lg:text-3xl">
+                {active.title}
+              </h2>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/60 sm:text-base">
+                {active.description}
+              </p>
+
+              <Link
+                to="/servidor"
+                className="group mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-white/70 transition-colors hover:text-white"
+              >
+                Ver el servidor
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -25,7 +25,7 @@ function BusIcon() {
 const testimonials = [
   {
     quote: '"Hagamos y demostremos algo nuevo"',
-    author: 'Bless',
+    author: 'TeamAndes',
     role: 'AndesMP',
     icon: <AndesMPIcon />,
     style: {
@@ -37,8 +37,8 @@ const testimonials = [
     quoteSize: 'text-xl sm:text-2xl',
   },
   {
-    quote: '"Amén"',
-    author: 'Diosito',
+    quote: '"Es un juego"',
+    author: 'Team Andes',
     role: 'Andes MP',
     icon: <BusIcon />,
     style: {
