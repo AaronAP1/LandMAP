@@ -1,11 +1,12 @@
 import * as Accordion from '@radix-ui/react-accordion';
+import { EVENTS, track } from '../lib/analytics';
 import { motion } from 'framer-motion';
 import { Minus, Plus } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const DISCORD_URL = 'https://discord.gg/eYeqrj3PAx';
 
-const EVENTS = [
+const SERVER_EVENTS = [
   'Convoy en empresas',
   'Cargas especiales con escolta',
   'Chapa tu tombo',
@@ -97,6 +98,7 @@ export default function Playbook() {
               href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track(EVENTS.discordClick, { location: 'playbook' })}
               className="mt-8 inline-block bg-[#e0512f] px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#f0603c]"
             >
               Unirse al Discord
@@ -114,7 +116,7 @@ export default function Playbook() {
             <div>
               <Label>Eventos</Label>
               <ul className="space-y-2">
-                {EVENTS.map((item) => (
+                {SERVER_EVENTS.map((item) => (
                   <li
                     key={item}
                     className="text-lg leading-snug text-white sm:text-xl"
@@ -145,6 +147,9 @@ export default function Playbook() {
                 type="single"
                 collapsible
                 defaultValue={FAQ[0].id}
+                onValueChange={(value) =>
+                  value && track(EVENTS.faqOpen, { question: value })
+                }
                 className="border-t border-white/10"
               >
                 {FAQ.map((item) => (

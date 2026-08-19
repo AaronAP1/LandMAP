@@ -1,11 +1,10 @@
 /// <reference types="vite/client" />
 
-declare module '*.svg?url' {
-  const src: string;
-  export default src;
+interface ImportMetaEnv {
+  readonly VITE_POSTHOG_KEY?: string;
+  readonly VITE_POSTHOG_HOST?: string;
 }
 
-declare module '*.svg' {
-  const src: string;
-  export default src;
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

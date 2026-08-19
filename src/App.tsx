@@ -19,6 +19,7 @@ import EventosPage from './pages/EventosPage';
 import ContactoPage from './pages/ContactoPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { ROUTES } from './lib/links';
+import { trackPageview } from './lib/analytics';
 
 function HomePage() {
   return (
@@ -50,6 +51,12 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  // Pageview manual: al ser una SPA, PostHog solo veria la primera carga.
+  // Incluimos search para distinguir las pestanas de /recursos.
+  useEffect(() => {
+    trackPageview(location.pathname + location.search);
+  }, [location.pathname, location.search]);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#090909] text-white">

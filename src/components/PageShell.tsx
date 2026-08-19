@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { trackOutbound } from '../lib/analytics';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -70,7 +71,13 @@ const GHOST_CLASS =
 /** Boton primario naranja hacia un enlace externo. */
 export function PrimaryLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={PRIMARY_CLASS}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => trackOutbound(href)}
+      className={PRIMARY_CLASS}
+    >
       {children}
     </a>
   );
@@ -88,7 +95,13 @@ export function PrimaryRoute({ to, children }: { to: string; children: ReactNode
 /** Boton secundario con borde hacia un enlace externo. */
 export function GhostLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={GHOST_CLASS}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => trackOutbound(href)}
+      className={GHOST_CLASS}
+    >
       {children}
     </a>
   );

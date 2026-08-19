@@ -1,4 +1,5 @@
 import * as Accordion from '@radix-ui/react-accordion';
+import { EVENTS, track, trackOutbound } from '../lib/analytics';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Minus, Plus } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
@@ -230,6 +231,7 @@ export default function RecursosPage() {
                     href={mod.action.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackOutbound(mod.action.href)}
                     className="group inline-flex items-center gap-2 whitespace-nowrap text-[11px] uppercase tracking-[0.12em] text-white/70 transition-colors hover:text-white"
                   >
                     {mod.action.label}
@@ -253,6 +255,9 @@ export default function RecursosPage() {
               type="single"
               collapsible
               defaultValue={FAQ[0].id}
+              onValueChange={(value) =>
+                value && track(EVENTS.faqOpen, { question: value })
+              }
               className="max-w-3xl border-t border-white/10"
             >
               {FAQ.map((item) => (

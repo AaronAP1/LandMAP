@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { trackOutbound } from '../lib/analytics';
 import {
   DISCORD_URL,
   HUB_DOWNLOAD_URL,
@@ -39,6 +40,7 @@ function FooterItem({ link, className }: { link: FooterLink; className: string }
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackOutbound(link.href!)}
         className={className}
       >
         {link.name}

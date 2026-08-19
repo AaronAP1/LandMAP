@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
+import { EVENTS, track } from '../lib/analytics';
 import { Link, NavLink } from 'react-router-dom';
 import {
   DISCORD_URL,
@@ -188,6 +189,7 @@ export default function Navbar() {
               href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track(EVENTS.discordClick, { location: 'navbar' })}
               className="hidden text-sm text-white/70 transition-colors hover:text-white sm:block"
             >
               Unirse a Discord
@@ -196,6 +198,7 @@ export default function Navbar() {
               href={HUB_DOWNLOAD_URL}
               download={HUB_FILENAME}
               rel="noopener noreferrer"
+              onClick={() => track(EVENTS.hubDownload, { location: 'navbar' })}
               className="rounded-md bg-[#e0512f] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#f0603c]"
             >
               Descargar HUB
@@ -260,6 +263,7 @@ export default function Navbar() {
                 href={DISCORD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track(EVENTS.discordClick, { location: 'navbar_movil' })}
                 className="mt-2 block rounded-lg border border-white/10 px-3 py-2 text-sm text-white/70 transition-colors hover:text-white sm:hidden"
               >
                 Unirse a Discord

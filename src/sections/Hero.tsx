@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { EVENTS, track } from '../lib/analytics';
 import andesMpLogo from '../img/ANDESMPServidorSimulacionets2.png';
 import g6Wide from '../img/buses/g6_andesmp.webp';
 import g6Small from '../img/buses/g6_andesmp@800.webp';
@@ -189,6 +190,7 @@ export default function Hero() {
               <a
                 href={HUB_URL}
                 rel="noopener noreferrer"
+                onClick={() => track(EVENTS.hubDownload, { location: 'hero' })}
                 className="rounded-md bg-[#e0512f] px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#f0603c]"
               >
                 Descargar HUB
@@ -197,6 +199,7 @@ export default function Hero() {
                 href={DISCORD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track(EVENTS.discordClick, { location: 'hero' })}
                 className="rounded-md border border-white/10 px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.1em] text-white/80 transition-colors hover:border-white/25 hover:text-white"
               >
                 Unirse a Discord
@@ -256,7 +259,12 @@ export default function Hero() {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => {
+                    setActiveIndex(index);
+                    // Solo la seleccion manual. El autoplay no dispara evento,
+                    // si no cada visita generaria 7 eventos falsos.
+                    track(EVENTS.busTabClick, { bus: item.tab });
+                  }}
                   className={`relative border-l border-white/10 px-4 py-6 text-center text-[13px] transition-colors first:border-l-0 sm:py-8 ${
                     isActive
                       ? 'bg-white/[0.05] text-white'

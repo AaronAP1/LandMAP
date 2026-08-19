@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
+import { trackOutbound } from '../lib/analytics';
 import PageShell, {
   GhostLink,
   PrimaryLink,
@@ -98,6 +99,7 @@ export default function ComunidadPage() {
               href={channel.href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackOutbound(channel.href)}
               className="group bg-[#0a0a0a] p-7 transition-colors hover:bg-white/[0.03]"
             >
               <div className="flex items-start justify-between gap-4">

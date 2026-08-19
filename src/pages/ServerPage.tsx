@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { DISCORD_URL } from '../lib/links';
+import { DISCORD_URL, HUB_DOWNLOAD_URL } from '../lib/links';
+import { EVENTS, track } from '../lib/analytics';
 
 const businessFeatures = [
   {
@@ -296,6 +297,7 @@ export default function ServerPage() {
             href={DISCORD_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track(EVENTS.discordClick, { location: 'servidor_staff' })}
             className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-white/60 transition-colors hover:text-white"
           >
             Contactar al staff en Discord
@@ -319,7 +321,10 @@ export default function ServerPage() {
             Nuestro launcher oficial te instala todo automáticamente. Comienza a jugar en minutos.
           </p>
             <button
-            onClick={() => window.open('https://andesmap.s3.us-east-2.amazonaws.com/Ejecutable/HubANDES_Setup_1.6.0.exe', '_blank')}
+            onClick={() => {
+              track(EVENTS.hubDownload, { location: 'servidor_cta' });
+              window.open(HUB_DOWNLOAD_URL, '_blank', 'noopener');
+            }}
             className="mt-6 rounded-lg bg-white px-6 py-2 text-sm font-semibold text-black transition hover:bg-white/90"
             >
             Descargar HUBAndes

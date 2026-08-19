@@ -1,0 +1,50 @@
+# Configuracion de nginx para servir el build de Vite en el VPS.
+# Copiar a /etc/nginx/sites-available/andesmp y enlazar en sites-enabled.
+#
+#   sudo ln -s /etc/nginx/sites-available/andesmp /etc/nginx/sites-enabled/
+#   sudo nginx -t && sudo systemctl reload nginx
+#
+# El certificado TLS se saca con:  sudo certbot --nginx -d andesmp.com -d www.andesmp.com
+# (certbot reescribe este archivo anadiendo el bloque 443; el bloque 80 de abajo
+#  es el punto de partida).
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name andesmp.com www.andesmp.com;   # <-- cambiar por tu dominio real
+
+    root /var/www/andesmp/dist;
+    index index.html;
+
+    # --- Rutas SPA -----------------------------------------------------------
+    # Sin esto, entrar directo a /reglas o /recursos devuelve 404: esos ficheros
+    # no existen en disco, las rutas las resuelve react-router en el navegador.
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # --- Cache ---------------------------------------------------------------
+    # Vite pone un hash en el nombre de cada asset, asi que se pueden cachear
+    # para siempre sin miedo a servir una version vieja.
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    # index.html nunca se cachea, es quien apunta a los assets con hash nuevo.
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+
+    # --- Compresion ----------------------------------------------------------
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css application/javascript application/json image/svg+xml;
+    # Las .webp ya vienen comprimidas: recomprimirlas solo gasta CPU.
+
+    # --- Cabeceras de seguridad ---------------------------------------------
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+}

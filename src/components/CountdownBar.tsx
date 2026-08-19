@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { EVENTS, track } from '../lib/analytics';
 
 const ROOM_ID = '85568392936601477';
 const HIDE_AFTER = 80;
@@ -18,6 +19,7 @@ export default function CountdownBar() {
     try {
       await navigator.clipboard.writeText(ROOM_ID);
       setCopied(true);
+      track(EVENTS.roomIdCopy);
       window.setTimeout(() => setCopied(false), 1500);
     } catch {
       setCopied(false);
