@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 import {
   DISCORD_URL,
@@ -134,27 +134,49 @@ export default function Navbar() {
                   {link.dropdown && <ChevronDown className="h-3 w-3" />}
                 </NavLink>
 
+                {/* El wrapper incluye el pt-2, asi el espacio entre el enlace y
+                    el panel sigue siendo zona hover y el menu no se cierra al
+                    bajar el cursor. */}
                 {link.dropdown && activeDropdown === link.name && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="glass absolute left-0 top-full mt-2 w-64 rounded-xl p-2 shadow-2xl"
-                  >
-                    {link.dropdown.map((item) => (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        onClick={closeMenus}
-                        className="block rounded-lg px-3 py-2 transition-colors hover:bg-white/5"
-                      >
-                        <div className="text-sm text-white">{item.name}</div>
-                        <div className="text-xs text-white/50">
-                          {item.description}
-                        </div>
-                      </Link>
-                    ))}
-                  </motion.div>
+                  <div className="absolute left-0 top-full z-50 pt-2">
+                    <motion.div
+                      initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                      className="w-72 overflow-hidden rounded-xl border border-white/12 bg-[#121212] shadow-[0_16px_48px_-8px_rgba(0,0,0,0.9)]"
+                    >
+                      <div className="border-b border-white/[0.07] px-4 py-2.5">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#e0512f]">
+                          {link.name}
+                        </p>
+                      </div>
+
+                      <div className="p-1.5">
+                        {link.dropdown.map((item) => (
+                          <NavLink
+                            key={item.to}
+                            to={item.to}
+                            onClick={closeMenus}
+                            className={({ isActive }) =>
+                              `group/item block rounded-lg px-3 py-2.5 transition-colors ${
+                                isActive ? 'bg-white/[0.07]' : 'hover:bg-white/[0.05]'
+                              }`
+                            }
+                          >
+                            <div className="flex items-center justify-between gap-3">
+                              <span className="text-sm font-medium text-white">
+                                {item.name}
+                              </span>
+                              <ArrowRight className="h-3.5 w-3.5 shrink-0 text-white/25 transition-all group-hover/item:translate-x-0.5 group-hover/item:text-[#e0512f]" />
+                            </div>
+                            <p className="mt-0.5 text-xs leading-snug text-white/45">
+                              {item.description}
+                            </p>
+                          </NavLink>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
                 )}
               </div>
             ))}
@@ -198,7 +220,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2 }}
             onClick={closeMenus}
-            className="glass mb-3 rounded-xl border border-white/10 p-2 md:hidden"
+            className="mb-3 rounded-xl border border-white/12 bg-[#121212] p-2 shadow-[0_16px_48px_-8px_rgba(0,0,0,0.9)] md:hidden"
           >
               {navLinks.map((link) => (
                 <div key={link.name} className="mb-1 last:mb-0">
@@ -216,14 +238,17 @@ export default function Navbar() {
                   </NavLink>
 
                   {link.dropdown && (
-                    <div className="mt-1 space-y-1 pl-3">
+                    <div className="ml-3 mt-1 space-y-1 border-l border-white/10 pl-3">
                       {link.dropdown.map((item) => (
                         <Link
                           key={item.to}
                           to={item.to}
-                          className="block rounded-md px-3 py-1.5 text-xs text-white/60 transition-colors hover:bg-white/5 hover:text-white"
+                          className="block rounded-md px-3 py-2 text-xs text-white/60 transition-colors hover:bg-white/5 hover:text-white"
                         >
                           {item.name}
+                          <span className="mt-0.5 block text-[11px] leading-snug text-white/35">
+                            {item.description}
+                          </span>
                         </Link>
                       ))}
                     </div>

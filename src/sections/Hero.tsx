@@ -1,9 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import andesMpLogo from '../img/ANDESMPServidorSimulacionets2.png';
-import banner from '../img/banner.jpg';
+import g6Wide from '../img/buses/g6_andesmp.webp';
+import g6Small from '../img/buses/g6_andesmp@800.webp';
+import g7Wide from '../img/buses/g7_andesmp.webp';
+import g7Small from '../img/buses/g7_andesmp@800.webp';
+import newG7Wide from '../img/buses/newg7_andesmp.webp';
+import newG7Small from '../img/buses/newg7_andesmp@800.webp';
+import g8Wide from '../img/buses/g8_andesmp.webp';
+import g8Small from '../img/buses/g8_andesmp@800.webp';
+import busscarWide from '../img/buses/busscar_andesmp.webp';
+import busscarSmall from '../img/buses/busscar_andesmp@800.webp';
+import comilWide from '../img/buses/comil_andesmp.webp';
+import comilSmall from '../img/buses/comil_andesmp@800.webp';
+import vanWide from '../img/buses/van_andesmp.webp';
+import vanSmall from '../img/buses/van_andesmp@800.webp';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -17,7 +30,10 @@ type Showcase = {
   title: string;
   description: string;
   tags: string[];
+  /** Version 1600px, usada en desktop. */
   image: string;
+  /** Version 800px, usada en moviles via srcSet. */
+  imageSmall: string;
 };
 
 const SHOWCASES: Showcase[] = [
@@ -28,7 +44,8 @@ const SHOWCASES: Showcase[] = [
     description:
       'La generacion clasica de la ruta peruana. Ideal para convoys largos y viajes nocturnos entre regiones.',
     tags: ['Interprovincial', 'Clasico', 'Convoy'],
-    image: banner,
+    image: g6Wide,
+    imageSmall: g6Small,
   },
   {
     id: 'g7',
@@ -37,7 +54,18 @@ const SHOWCASES: Showcase[] = [
     description:
       'El bus mas usado del servidor. Equilibrio entre maniobrabilidad en ciudad y comodidad en carretera.',
     tags: ['Interprovincial', 'Popular', 'Ruta larga'],
-    image: banner,
+    image: g7Wide,
+    imageSmall: g7Small,
+  },
+  {
+    id: 'newg7',
+    tab: 'Marcopolo New G7',
+    title: 'Marcopolo New G7',
+    description:
+      'La puesta al dia del G7, con frontal renovado y el mismo comportamiento en ruta que ya conoce la comunidad.',
+    tags: ['Interprovincial', 'Renovado', 'Ruta larga'],
+    image: newG7Wide,
+    imageSmall: newG7Small,
   },
   {
     id: 'g8',
@@ -46,7 +74,8 @@ const SHOWCASES: Showcase[] = [
     description:
       'La generacion mas nueva, con acabados modernos y presencia pensada para las flotas premium de las empresas VTC.',
     tags: ['Premium', 'Flota VTC', 'Nuevo'],
-    image: banner,
+    image: g8Wide,
+    imageSmall: g8Small,
   },
   {
     id: 'busstar',
@@ -55,7 +84,8 @@ const SHOWCASES: Showcase[] = [
     description:
       'Carroceria robusta para rutas de sierra. Pensada para tramos exigentes y horarios de alta demanda.',
     tags: ['Sierra', 'Robusto', 'Alta demanda'],
-    image: banner,
+    image: busscarWide,
+    imageSmall: busscarSmall,
   },
   {
     id: 'comil',
@@ -64,16 +94,8 @@ const SHOWCASES: Showcase[] = [
     description:
       'Alternativa versatil dentro del servidor, con variantes que encajan tanto en rutas cortas como en servicios especiales.',
     tags: ['Versatil', 'Ruta corta', 'Especial'],
-    image: banner,
-  },
-  {
-    id: 'camiones',
-    tab: 'Camiones',
-    title: 'Camiones',
-    description:
-      'Para quienes prefieren la carga antes que el pasaje. Trabajo logistico dentro del mismo mapa y las mismas rutas.',
-    tags: ['Carga', 'Logistica', 'Trabajo'],
-    image: banner,
+    image: comilWide,
+    imageSmall: comilSmall,
   },
   {
     id: 'minivans',
@@ -82,16 +104,68 @@ const SHOWCASES: Showcase[] = [
     description:
       'Unidades ligeras para trayectos urbanos y conexiones rapidas entre ciudades del mapa.',
     tags: ['Urbano', 'Ligero', 'Conexion'],
-    image: banner,
+    image: vanWide,
+    imageSmall: vanSmall,
   },
 ];
+
+/** Tiempo que permanece visible cada carroceria antes de pasar a la siguiente. */
+const AUTOPLAY_MS = 6000;
 
 const META_LEFT = '+ Comunidad peruana de simulacion en ETS2';
 const META_RIGHT = ['+ Semana de pruebas activa', '+ Rutas, Empresas, Convoys'];
 
 export default function Hero() {
-  const [activeId, setActiveId] = useState(SHOWCASES[1].id);
-  const active = SHOWCASES.find((item) => item.id === activeId) ?? SHOWCASES[0];
+  const [activeIndex, setActiveIndex] = useState(1);
+  const active = SHOWCASES[activeIndex];
+
+  // El progreso se escribe directo sobre el nodo con rAF para no re-renderizar
+  // el Hero 60 veces por segundo.
+  const progressRef = useRef<HTMLSpanElement>(null);
+  const pausedRef = useRef(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+    if (reduceMotion) {
+      if (progressRef.current) {
+        progressRef.current.style.transform = 'scaleX(1)';
+      }
+      return;
+    }
+
+    let frame = 0;
+    let elapsed = 0;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      const delta = now - last;
+      last = now;
+      if (!pausedRef.current) elapsed += delta;
+
+      const progress = Math.min(elapsed / AUTOPLAY_MS, 1);
+      if (progressRef.current) {
+        progressRef.current.style.transform = `scaleX(${progress})`;
+      }
+
+      if (progress >= 1) {
+        setActiveIndex((index) => (index + 1) % SHOWCASES.length);
+        return;
+      }
+      frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [activeIndex]);
+
+  // Precarga la siguiente imagen para que el cambio no muestre un hueco.
+  useEffect(() => {
+    const next = SHOWCASES[(activeIndex + 1) % SHOWCASES.length];
+    const preload = new Image();
+    preload.src = next.image;
+  }, [activeIndex]);
 
   return (
     <section className="relative overflow-hidden bg-[#0a0a0a] pb-20 pt-12 sm:pb-28 sm:pt-20">
@@ -174,15 +248,15 @@ export default function Hero() {
             aria-label="Carrocerias disponibles"
             className="grid min-w-max auto-cols-[minmax(140px,1fr)] grid-flow-col border-y border-white/10 sm:min-w-0 sm:auto-cols-fr"
           >
-            {SHOWCASES.map((item) => {
-              const isActive = item.id === active.id;
+            {SHOWCASES.map((item, index) => {
+              const isActive = index === activeIndex;
               return (
                 <button
                   key={item.id}
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setActiveId(item.id)}
+                  onClick={() => setActiveIndex(index)}
                   className={`relative border-l border-white/10 px-4 py-6 text-center text-[13px] transition-colors first:border-l-0 sm:py-8 ${
                     isActive
                       ? 'bg-white/[0.05] text-white'
@@ -190,12 +264,14 @@ export default function Hero() {
                   }`}
                 >
                   {item.tab}
+                  {/* Barra de carga del autoplay, solo bajo la pestana activa */}
                   {isActive && (
-                    <motion.span
-                      layoutId="hero-tab-underline"
-                      className="absolute inset-x-0 bottom-0 h-px bg-[#e0512f]"
-                      transition={{ duration: 0.35, ease: EASE }}
-                    />
+                    <span className="absolute inset-x-0 bottom-0 h-[2px] overflow-hidden bg-white/10">
+                      <span
+                        ref={progressRef}
+                        className="block h-full w-full origin-left scale-x-0 bg-[#e0512f]"
+                      />
+                    </span>
                   )}
                 </button>
               );
@@ -208,13 +284,25 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.35, ease: EASE }}
+          onMouseEnter={() => {
+            pausedRef.current = true;
+          }}
+          onMouseLeave={() => {
+            pausedRef.current = false;
+          }}
           className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]"
         >
           <div className="relative aspect-[4/5] w-full sm:aspect-[16/9] lg:aspect-[16/8]">
             <motion.img
               key={`img-${active.id}`}
               src={active.image}
+              srcSet={`${active.imageSmall} 800w, ${active.image} 1600w`}
+              sizes="(min-width: 1200px) 1136px, 100vw"
               alt={active.title}
+              width={1672}
+              height={941}
+              decoding="async"
+              fetchPriority="high"
               initial={{ opacity: 0, scale: 1.04 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, ease: EASE }}
