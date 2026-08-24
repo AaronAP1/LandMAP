@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { EVENTS, track } from '../lib/analytics';
+import { DISCORD_URL, HUB_DOWNLOAD_URL } from '../lib/links';
 import andesMpLogo from '../img/ANDESMPServidorSimulacionets2.png';
 import g6Wide from '../img/buses/g6_andesmp.webp';
 import g6Small from '../img/buses/g6_andesmp@800.webp';
@@ -21,9 +22,7 @@ import vanSmall from '../img/buses/van_andesmp@800.webp';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const DISCORD_URL = 'https://discord.gg/eYeqrj3PAx';
-const HUB_URL =
-  'https://andesmap.s3.us-east-2.amazonaws.com/Ejecutable/HubANDES_Setup_1.6.0.exe';
+const HUB_URL = HUB_DOWNLOAD_URL;
 
 type Showcase = {
   id: string;
