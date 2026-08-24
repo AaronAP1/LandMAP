@@ -1,17 +1,22 @@
-# Configuracion de nginx para servir el build de Vite en el VPS.
-# Copiar a /etc/nginx/sites-available/andesmp y enlazar en sites-enabled.
+# Configuracion de nginx para el VPS de andesmp.site (64.176.25.112).
+# Copiar a /etc/nginx/sites-available/andesmp y enlazar en sites-enabled:
 #
 #   sudo ln -s /etc/nginx/sites-available/andesmp /etc/nginx/sites-enabled/
 #   sudo nginx -t && sudo systemctl reload nginx
 #
-# El certificado TLS se saca con:  sudo certbot --nginx -d andesmp.com -d www.andesmp.com
-# (certbot reescribe este archivo anadiendo el bloque 443; el bloque 80 de abajo
-#  es el punto de partida).
+# TLS (los tres subdominios de una sola vez):
+#   sudo certbot --nginx -d andesmp.site -d api.andesmp.site -d vtc.andesmp.site
+# certbot reescribe este archivo anadiendo los bloques 443 y el redirect 80->443.
+# NOTA: no incluyas -d www.andesmp.site mientras no exista ese registro en Route 53,
+# certbot falla la validacion y no emite NINGUN certificado.
 
+# =============================================================================
+#  andesmp.site  ->  landing estatica (build de Vite)
+# =============================================================================
 server {
     listen 80;
     listen [::]:80;
-    server_name andesmp.com www.andesmp.com;   # <-- cambiar por tu dominio real
+    server_name andesmp.site;
 
     root /var/www/andesmp/dist;
     index index.html;
@@ -47,4 +52,69 @@ server {
     # --- Cabeceras de seguridad ---------------------------------------------
     add_header X-Content-Type-Options "nosniff" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+}
+
+# =============================================================================
+#  api.andesmp.site  ->  proxy inverso al backend
+#  AJUSTAR el puerto 3000 al que realmente escuche tu API en localhost.
+# =============================================================================
+server {
+    listen 80;
+    listen [::]:80;
+    server_name api.andesmp.site;
+
+    # El .exe del HUB pesa ~84 MB; si algun dia lo sirves desde aqui en vez de S3,
+    # sin esto nginx corta la subida/descarga con 413.
+    client_max_body_size 100m;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+
+        # Necesario para WebSockets (si la API los usa).
+        proxy_set_header Upgrade    $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_read_timeout 300s;
+    }
+}
+
+# =============================================================================
+#  vtc.andesmp.site  ->  panel VTC
+#  AJUSTAR el puerto 8080 al que realmente escuche el panel en localhost.
+# =============================================================================
+server {
+    listen 80;
+    listen [::]:80;
+    server_name vtc.andesmp.site;
+
+    client_max_body_size 25m;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade    $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300s;
+    }
+}
+
+# =============================================================================
+#  Catch-all: cualquier peticion por IP o con Host desconocido se cierra.
+#  Evita que 64.176.25.112 sirva la landing y que bots enganchen por Host raro.
+# =============================================================================
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+    return 444;
 }
