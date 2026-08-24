@@ -34,13 +34,13 @@ export default function CTA() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="#signup"
+            href="https://andesmap.s3.us-east-2.amazonaws.com/Ejecutable/HubANDES_Setup_1.6.0.exe"
             className="px-8 py-3 text-base font-medium text-black bg-white rounded-lg hover:bg-white/90 transition-colors"
           >
             Descargar
           </a>
           <a
-            href="#contact"
+            href="https://discord.gg/eYeqrj3PAx"
             className="px-8 py-3 text-base font-medium text-white border border-white/20 rounded-lg hover:bg-white/5 transition-colors"
           >
             Como unirme

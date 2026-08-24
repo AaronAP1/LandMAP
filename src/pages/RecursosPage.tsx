@@ -74,10 +74,10 @@ const MODS = [
     action: { label: 'Via HUB', href: HUB_DOWNLOAD_URL },
   },
   {
-    name: 'Mapa de la semana',
+    name: 'Mapa Base',
     type: 'Mapa',
     description:
-      'Mientras se trabaja en el mapa definitivo, cada semana rota un mapa distinto. El HUB lo sincroniza antes de conectarte a la sala.',
+      'Mientras se trabaja en el mapa definitivo, cada semana se expande un poco. El HUB lo sincroniza antes de conectarte a la sala.',
     action: { label: 'Via HUB', href: HUB_DOWNLOAD_URL },
   },
   {
