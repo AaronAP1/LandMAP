@@ -56,19 +56,19 @@ server {
 
 # =============================================================================
 #  api.andesmp.site  ->  proxy inverso al backend
-#  AJUSTAR el puerto 3000 al que realmente escuche tu API en localhost.
+#  La API escucha en 127.0.0.1:3001 (ver .env de los proyectos).
 # =============================================================================
 server {
     listen 80;
     listen [::]:80;
     server_name api.andesmp.site;
 
-    # El .exe del HUB pesa ~84 MB; si algun dia lo sirves desde aqui en vez de S3,
-    # sin esto nginx corta la subida/descarga con 413.
-    client_max_body_size 100m;
+    # Los lotes de telemetria rondan los 200 KB. 2 MB deja margen sin permitir
+    # un cuerpo arbitrariamente grande (mismo limite que tenia el Caddyfile).
+    client_max_body_size 2m;
 
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://127.0.0.1:3001;
         proxy_http_version 1.1;
 
         # Necesario para WebSockets (si la API los usa).
@@ -85,8 +85,8 @@ server {
 }
 
 # =============================================================================
-#  vtc.andesmp.site  ->  panel VTC
-#  AJUSTAR el puerto 8080 al que realmente escuche el panel en localhost.
+#  vtc.andesmp.site  ->  front VTC (Next.js standalone, servicio systemd 'vtc')
+#  Escucha en 127.0.0.1:3000. No es estatico: es un proceso Node, no un root.
 # =============================================================================
 server {
     listen 80;
@@ -96,7 +96,7 @@ server {
     client_max_body_size 25m;
 
     location / {
-        proxy_pass http://127.0.0.1:8080;
+        proxy_pass http://127.0.0.1:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade    $http_upgrade;
         proxy_set_header Connection "upgrade";

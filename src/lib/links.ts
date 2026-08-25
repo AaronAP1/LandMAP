@@ -10,7 +10,7 @@ export const WHATSAPP_URL = 'https://chat.whatsapp.com/KwPuFTPy77j5sZOA8wVAb6';
  * build a S3 (carpeta Ejecutable/). El nombre de archivo y la URL se derivan.
  * Alternativa sin redeploy: definir VITE_HUB_URL en el .env del build.
  */
-export const HUB_VERSION = '1.6.0';
+export const HUB_VERSION = '1.7.0';
 export const HUB_FILENAME = `HubANDES_Setup_${HUB_VERSION}.exe`;
 export const HUB_DOWNLOAD_URL =
   import.meta.env.VITE_HUB_URL ??
