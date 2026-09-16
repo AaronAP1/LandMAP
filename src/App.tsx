@@ -12,6 +12,7 @@ import Testimonials from './sections/Testimonials';
 import CTA from './sections/CTA';
 import Footer from './sections/Footer';
 import ServerPage from './pages/ServerPage';
+import RutasPage from './pages/RutasPage';
 import RecursosPage from './pages/RecursosPage';
 import ComunidadPage from './pages/ComunidadPage';
 import ReglasPage from './pages/ReglasPage';
@@ -37,6 +38,7 @@ function HomePage() {
 const PAGES = [
   { path: ROUTES.home, element: <HomePage /> },
   { path: ROUTES.servidor, element: <ServerPage /> },
+  { path: ROUTES.rutas, element: <RutasPage /> },
   { path: ROUTES.recursos, element: <RecursosPage /> },
   { path: ROUTES.comunidad, element: <ComunidadPage /> },
   { path: ROUTES.reglas, element: <ReglasPage /> },

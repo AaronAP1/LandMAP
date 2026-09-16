@@ -21,6 +21,7 @@ export const ROOM_ID = '85568392936601477';
 export const ROUTES = {
   home: '/',
   servidor: '/servidor',
+  rutas: '/rutas',
   recursos: '/recursos',
   guias: '/recursos?tab=guias',
   mods: '/recursos?tab=mods',

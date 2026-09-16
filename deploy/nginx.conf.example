@@ -37,6 +37,18 @@ server {
         access_log off;
     }
 
+    # --- Tiles del mapa ------------------------------------------------------
+    # ~22.000 PNG que nunca cambian dentro de una misma generacion. Van antes
+    # del location / para que no les aplique el fallback de SPA: sin esto una
+    # tile inexistente devolveria el index.html con 200 en vez de un 404, y el
+    # visor no podria distinguir "no hay tile" de "hay mapa".
+    location /map/Tiles/ {
+        expires 30d;
+        add_header Cache-Control "public";
+        access_log off;
+        try_files $uri =404;
+    }
+
     # index.html nunca se cachea, es quien apunta a los assets con hash nuevo.
     location = /index.html {
         add_header Cache-Control "no-cache";

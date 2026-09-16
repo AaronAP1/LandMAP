@@ -3,3 +3,6 @@ node_modules
 # Variables de entorno locales
 .env
 .env.local
+
+# Tiles del mapa: las genera TsMap, no se versionan (~22 MB, 21845 archivos)
+public/map/Tiles/

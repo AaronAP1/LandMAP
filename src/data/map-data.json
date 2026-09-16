@@ -1,0 +1,2464 @@
+{
+  "info": {
+    "x1": -98054.125,
+    "y1": -25935.418,
+    "x2": -20006.75,
+    "y2": 52111.957,
+    "minZoom": 0,
+    "maxZoom": 7
+  },
+  "cities": [
+    {
+      "name": "Acostambo",
+      "x": -41177.65,
+      "y": 16797.127
+    },
+    {
+      "name": "Barranca",
+      "x": -73777.3,
+      "y": -3681.76563
+    },
+    {
+      "name": "Callao",
+      "x": -66513.04,
+      "y": 12319.6523
+    },
+    {
+      "name": "Canete",
+      "x": -54856.0742,
+      "y": 27192.707
+    },
+    {
+      "name": "Casapalca",
+      "x": -52735.9141,
+      "y": 5256.137
+    },
+    {
+      "name": "Casma",
+      "x": -81272.43,
+      "y": -20293.5938
+    },
+    {
+      "name": "Chancay",
+      "x": -68408.52,
+      "y": 6115.356
+    },
+    {
+      "name": "Chicla",
+      "x": -53489.95,
+      "y": 5987.62451
+    },
+    {
+      "name": "Chincha",
+      "x": -52854.9922,
+      "y": 30420.1719
+    },
+    {
+      "name": "Concepción",
+      "x": -41537.89,
+      "y": 11674.8047
+    },
+    {
+      "name": "Huacho",
+      "x": -71757.56,
+      "y": -153.980469
+    },
+    {
+      "name": "Huancayo",
+      "x": -39185.05,
+      "y": 14708.3857
+    },
+    {
+      "name": "Huarmey",
+      "x": -78848.18,
+      "y": -12638.6807
+    },
+    {
+      "name": "Ica",
+      "x": -48715.4336,
+      "y": 38333.4063
+    },
+    {
+      "name": "Izcuchaca",
+      "x": -43428.14,
+      "y": 21201.62
+    },
+    {
+      "name": "Jauja",
+      "x": -44454.5156,
+      "y": 8710.519
+    },
+    {
+      "name": "La Oroya",
+      "x": -50422.7227,
+      "y": 6535.138
+    },
+    {
+      "name": "Lima",
+      "x": -62684.15,
+      "y": 13977.7773
+    },
+    {
+      "name": "Mala",
+      "x": -58563.9141,
+      "y": 25267.6875
+    },
+    {
+      "name": "Matucana",
+      "x": -54250.36,
+      "y": 9440.39551
+    },
+    {
+      "name": "Nasca",
+      "x": -36872.83,
+      "y": 47915.47
+    },
+    {
+      "name": "Nueva Morococha",
+      "x": -50590.1875,
+      "y": 5190.255
+    },
+    {
+      "name": "Paracas",
+      "x": -54546.08,
+      "y": 35881.72
+    },
+    {
+      "name": "Pativilca",
+      "x": -73805.91,
+      "y": -4556.85156
+    },
+    {
+      "name": "Pisco",
+      "x": -54295.418,
+      "y": 34264.4922
+    },
+    {
+      "name": "San Mateo",
+      "x": -55106.9727,
+      "y": 8039.096
+    },
+    {
+      "name": "Supe",
+      "x": -72710.2656,
+      "y": -3381.125
+    },
+    {
+      "name": "Tarma",
+      "x": -44920.6055,
+      "y": 1873.90674
+    }
+  ],
+  "overlays": [
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -44170.2148,
+      "y": 2018.35559
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44192.45,
+      "y": 2046.64
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -44172.17,
+      "y": 2044.90417
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -44256.65,
+      "y": 2184.58887
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -44255.9,
+      "y": 2172.61328
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44367.29,
+      "y": 2100.17969
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44366.8438,
+      "y": 2091.55957
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -44342.5039,
+      "y": 1972.51184
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44356.4727,
+      "y": 2086.03247
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44356.0859,
+      "y": 2077.41577
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -43329.8359,
+      "y": 21295.71
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -43318.16,
+      "y": 21292.9434
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -38378.9,
+      "y": 15016.9668
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -38373.1445,
+      "y": 15052.48
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -38360.69,
+      "y": 15036.3867
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -38967.89,
+      "y": 15535.5313
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -38979.24,
+      "y": 15539.4414
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -39037.7,
+      "y": 14671.4766
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -38633.32,
+      "y": 15437.75
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -38683.543,
+      "y": 15362.6377
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -38697.6641,
+      "y": 15368.3135
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -38549.99,
+      "y": 15287.3955
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -38536.0938,
+      "y": 15281.1309
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -81463.47,
+      "y": -20741.8086
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -81314.73,
+      "y": -20363.6426
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -81316.62,
+      "y": -20345.58
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -81326.79,
+      "y": -20346.377
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -81324.84,
+      "y": -20364.7988
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -81246.0859,
+      "y": -20145.6445
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -80777.55,
+      "y": -19728.6113
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -80888.8359,
+      "y": -19755.6211
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -80876.86,
+      "y": -19756.3711
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -80569.67,
+      "y": -19864.0586
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -80600.4844,
+      "y": -19861.9766
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -80397.49,
+      "y": -19627.9766
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -79787.48,
+      "y": -19543.96
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -79972.7656,
+      "y": -17573.1211
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -78244.375,
+      "y": -12221.4
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -78666.45,
+      "y": -14522.8438
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -78718.92,
+      "y": -12193.5791
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -78639.65,
+      "y": -12086.1768
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -78626.69,
+      "y": -12055.0586
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -78657.875,
+      "y": -12213.8223
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -78446.31,
+      "y": -11917.4609
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -78438.89,
+      "y": -11908.0371
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -76366.3,
+      "y": -9897.956
+    },
+    {
+      "name": "euroacres",
+      "type": "Company",
+      "x": -77944.94,
+      "y": -10632.64
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -77060.0547,
+      "y": -10924.27
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -76281.28,
+      "y": -7872.535
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -73743.23,
+      "y": -4537.845
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -73668.94,
+      "y": -4458.43
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -73752.91,
+      "y": -4530.758
+    },
+    {
+      "name": "lm_100",
+      "type": "Overlay",
+      "x": -73787.22,
+      "y": -4326.457
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -74197.5859,
+      "y": -4975.039
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -73307.91,
+      "y": -4033.36719
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -73719.3,
+      "y": -4504.187
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -72535.7344,
+      "y": -3275.75781
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -73661.6953,
+      "y": -3184.164
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -73651.84,
+      "y": -3191.00781
+    },
+    {
+      "name": "cargotras",
+      "type": "Company",
+      "x": -73470.1,
+      "y": -3532.82983
+    },
+    {
+      "name": "ns_oil",
+      "type": "Company",
+      "x": -73404.4453,
+      "y": -3043.794
+    },
+    {
+      "name": "euroacres",
+      "type": "Company",
+      "x": -73230.2656,
+      "y": -1631.6687
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -72523.7344,
+      "y": -3275.559
+    },
+    {
+      "name": "euroacres",
+      "type": "Company",
+      "x": -72749.3047,
+      "y": -3385.83276
+    },
+    {
+      "name": "lm_100",
+      "type": "Overlay",
+      "x": -73731.34,
+      "y": -3986.14844
+    },
+    {
+      "name": "lm_100",
+      "type": "Overlay",
+      "x": -72926.38,
+      "y": -3170.33984
+    },
+    {
+      "name": "lm_100",
+      "type": "Overlay",
+      "x": -72322.89,
+      "y": -2931.21484
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -72298.4453,
+      "y": -3538.92969
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -72762.01,
+      "y": -2467.29688
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -72872.11,
+      "y": -1523.418
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -73588.96,
+      "y": -3550.31226
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -73603.37,
+      "y": -3539.767
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -73151.56,
+      "y": -3672.966
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -72981.12,
+      "y": -3651.17236
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -73014.19,
+      "y": -3665.333
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -73007.26,
+      "y": -3646.196
+    },
+    {
+      "name": "dealer_ico",
+      "type": "TruckDealer",
+      "x": -73277.98,
+      "y": -3402.02075
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -71464.44,
+      "y": -14.0703125
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -71470.93,
+      "y": -3.98278046
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -71291.32,
+      "y": -196.019531
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -71448.68,
+      "y": -97.09766
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -71464.5859,
+      "y": -115.732224
+    },
+    {
+      "name": "cargotras",
+      "type": "Company",
+      "x": -71368.2344,
+      "y": 167.879181
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -71189.97,
+      "y": 1866.40625
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -71239.13,
+      "y": 117.014442
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -71273.47,
+      "y": 106.272758
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -71264.64,
+      "y": 124.610909
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -71459.16,
+      "y": 122.871346
+    },
+    {
+      "name": "dealer_ico",
+      "type": "TruckDealer",
+      "x": -71286.62,
+      "y": 61.9509163
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -69993.42,
+      "y": 3795.03125
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -64967.7266,
+      "y": 12858.66
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -64775.1563,
+      "y": 13573.127
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -64968.34,
+      "y": 12846.6768
+    },
+    {
+      "name": "cont_port",
+      "type": "Company",
+      "x": -66386.99,
+      "y": 13690.292
+    },
+    {
+      "name": "fle",
+      "type": "Company",
+      "x": -64866.7773,
+      "y": 12955.4922
+    },
+    {
+      "name": "subse",
+      "type": "Company",
+      "x": -65325.293,
+      "y": 14436.3428
+    },
+    {
+      "name": "tree_et",
+      "type": "Company",
+      "x": -64453.6445,
+      "y": 12658.2539
+    },
+    {
+      "name": "pe_20",
+      "type": "Overlay",
+      "x": -65368.5664,
+      "y": 12985.6641
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65130.86,
+      "y": 12243.7227
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64821.5977,
+      "y": 12745.8945
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64830.3672,
+      "y": 12739.6523
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64839.13,
+      "y": 12733.3945
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64847.8359,
+      "y": 12717.8164
+    },
+    {
+      "name": "pe_20b",
+      "type": "Overlay",
+      "x": -64908.4648,
+      "y": 12487.5313
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64814.1953,
+      "y": 12832.9658
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64803.4,
+      "y": 12818.3809
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65585.95,
+      "y": 13402.9043
+    },
+    {
+      "name": "recruitment_ico",
+      "type": "Recruitment",
+      "x": -65723.625,
+      "y": 13939.0059
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65302.96,
+      "y": 13556.7227
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -65501.8633,
+      "y": 13438.79
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -65530.0977,
+      "y": 13452.248
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65479.29,
+      "y": 13438.63
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -65713.89,
+      "y": 13782.3574
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65447.4766,
+      "y": 14506.0723
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65241.12,
+      "y": 14399.1963
+    },
+    {
+      "name": "dealer_ico",
+      "type": "TruckDealer",
+      "x": -64914.6758,
+      "y": 13717.7256
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64139.0234,
+      "y": 13704.4678
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64119.2539,
+      "y": 13699.6865
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64250.0352,
+      "y": 14037.9473
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65289.58,
+      "y": 12094.6865
+    },
+    {
+      "name": "ns_oil",
+      "type": "Company",
+      "x": -65399.3828,
+      "y": 11362.9307
+    },
+    {
+      "name": "polar_fish",
+      "type": "Company",
+      "x": -65425.8047,
+      "y": 12020.625
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -66489.86,
+      "y": 8128.668
+    },
+    {
+      "name": "pe_1n",
+      "type": "Overlay",
+      "x": -64606.7266,
+      "y": 10069.1016
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -66079.23,
+      "y": 9557.552
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -66036,
+      "y": 9541.546
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -65977.59,
+      "y": 9488.818
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -66011.42,
+      "y": 9518.35449
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -65758.42,
+      "y": 9751.557
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64440.7344,
+      "y": 11752.2832
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -64570.4453,
+      "y": 10815.5664
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -65721.61,
+      "y": 9776.85
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -64563.457,
+      "y": 10772.1865
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -64460.82,
+      "y": 11712.23
+    },
+    {
+      "name": "pe_20",
+      "type": "Overlay",
+      "x": -65407.0625,
+      "y": 11791.7813
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -67833.92,
+      "y": 6753.48047
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -67822.8,
+      "y": 6748.98438
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -67765.22,
+      "y": 6590.344
+    },
+    {
+      "name": "cont_port",
+      "type": "Company",
+      "x": -67899.52,
+      "y": 7326
+    },
+    {
+      "name": "euroacres",
+      "type": "Company",
+      "x": -67639.23,
+      "y": 6322.8125
+    },
+    {
+      "name": "polar_fish",
+      "type": "Company",
+      "x": -67880.53,
+      "y": 7006.053
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -67603.2,
+      "y": 6384.19727
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -67356.6953,
+      "y": 6678.402
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -67709.87,
+      "y": 6980.83154
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -60810.1172,
+      "y": 17910.3047
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -60162.3867,
+      "y": 19506.0684
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -60145.375,
+      "y": 19531.65
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -60165.0156,
+      "y": 19601.0215
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -60193.85,
+      "y": 19565.4746
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -62563.4258,
+      "y": 14535.3047
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -62194.17,
+      "y": 12902.207
+    },
+    {
+      "name": "terminal02",
+      "type": "Company",
+      "x": -61162.9766,
+      "y": 14464.3584
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -61354,
+      "y": 14742.5645
+    },
+    {
+      "name": "sellplan",
+      "type": "Company",
+      "x": -63801.3867,
+      "y": 13499.0479
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -62551.4375,
+      "y": 14535.8145
+    },
+    {
+      "name": "terminal03",
+      "type": "Company",
+      "x": -62183.3477,
+      "y": 12897.0273
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -60994.79,
+      "y": 14378.8877
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -61150.99,
+      "y": 14464.8281
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -63631.9727,
+      "y": 13510.0078
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -63609.9727,
+      "y": 13517.8262
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -63631.9844,
+      "y": 14034.9775
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -63436.05,
+      "y": 14069.4033
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -63425.4258,
+      "y": 14072.1045
+    },
+    {
+      "name": "recruitment_ico",
+      "type": "Recruitment",
+      "x": -62051.97,
+      "y": 13649.1143
+    },
+    {
+      "name": "dealer_ico",
+      "type": "TruckDealer",
+      "x": -61802.81,
+      "y": 14595.6885
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -60263.3242,
+      "y": 14839.293
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -61590.293,
+      "y": 14369.2012
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -63537.68,
+      "y": 14044.32
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -61560.6367,
+      "y": 14402.8193
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -62082.0977,
+      "y": 14683.23
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -62085.7,
+      "y": 14647.4346
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -62099.1,
+      "y": 14662.748
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -58485.16,
+      "y": 25576.05
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -58473.332,
+      "y": 25578.0762
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -58169.35,
+      "y": 25371.834
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -56277.86,
+      "y": 26508.207
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -58121.3125,
+      "y": 25467.8027
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -58071.6641,
+      "y": 26230.5273
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -58284.4336,
+      "y": 25649.1816
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -59507.7852,
+      "y": 20332.27
+    },
+    {
+      "name": "ns_oil",
+      "type": "Company",
+      "x": -59956.86,
+      "y": 19541.72
+    },
+    {
+      "name": "cargotras",
+      "type": "Company",
+      "x": -58370.8477,
+      "y": 12913.2676
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -58332.0469,
+      "y": 12651.9219
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -59643.36,
+      "y": 14176.918
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -59645.7969,
+      "y": 14163.9043
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -59008.22,
+      "y": 12563.19
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -59032.8633,
+      "y": 12569.6572
+    },
+    {
+      "name": "gnt",
+      "type": "Company",
+      "x": -56609.31,
+      "y": 10870.0322
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -56010.95,
+      "y": 9026.16
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -56548.23,
+      "y": 10796.7617
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -56574.3,
+      "y": 10819.8779
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -56341.707,
+      "y": 10860.9531
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -55377.1563,
+      "y": 36613.5078
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -54536.0352,
+      "y": 36149.707
+    },
+    {
+      "name": "terminal03",
+      "type": "Company",
+      "x": -55366.8164,
+      "y": 36607.4141
+    },
+    {
+      "name": "terminal02",
+      "type": "Company",
+      "x": -54534.0664,
+      "y": 36137.8672
+    },
+    {
+      "name": "pe_1se",
+      "type": "Overlay",
+      "x": -52847.85,
+      "y": 36414.4
+    },
+    {
+      "name": "pe_28",
+      "type": "Overlay",
+      "x": -55194.0078,
+      "y": 36727.88
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -54493.0039,
+      "y": 36187.6445
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -54342.32,
+      "y": 35984.45
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -52915.0469,
+      "y": 34883.04
+    },
+    {
+      "name": "sellplan",
+      "type": "Company",
+      "x": -53861.8867,
+      "y": 34868.47
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -54344.9023,
+      "y": 35972.73
+    },
+    {
+      "name": "fle",
+      "type": "Company",
+      "x": -54057.8242,
+      "y": 35079.4766
+    },
+    {
+      "name": "cont_port",
+      "type": "Company",
+      "x": -55276.89,
+      "y": 35813.62
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -52904.4922,
+      "y": 34888.7461
+    },
+    {
+      "name": "polar_fish",
+      "type": "Company",
+      "x": -54232.7734,
+      "y": 35049.64
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -52757.98,
+      "y": 34610.7
+    },
+    {
+      "name": "pe_28",
+      "type": "Overlay",
+      "x": -53773.24,
+      "y": 35689.1133
+    },
+    {
+      "name": "pe_1sf",
+      "type": "Overlay",
+      "x": -54337.0273,
+      "y": 35382.4727
+    },
+    {
+      "name": "dealer_ico",
+      "type": "TruckDealer",
+      "x": -53872.91,
+      "y": 34630.88
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -53772.4766,
+      "y": 34386.5156
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -53753.61,
+      "y": 34401.2969
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -53624.5938,
+      "y": 34407.6172
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -54112.0547,
+      "y": 35100.79
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -54131.2578,
+      "y": 35070.3672
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -54136.418,
+      "y": 35090.06
+    },
+    {
+      "name": "polar_fish",
+      "type": "Company",
+      "x": -53525.8828,
+      "y": 31180.08
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -52527.63,
+      "y": 31178.47
+    },
+    {
+      "name": "sellplan",
+      "type": "Company",
+      "x": -52821.3867,
+      "y": 30549.8145
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -52515.7656,
+      "y": 30718.5781
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -52424.44,
+      "y": 30563.33
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -52507.582,
+      "y": 30709.7988
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -54138.8164,
+      "y": 29669.6523
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -52428.6172,
+      "y": 31826.7539
+    },
+    {
+      "name": "pe_1se",
+      "type": "Overlay",
+      "x": -53150.1445,
+      "y": 31931.5078
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -52477.3,
+      "y": 31094.543
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -52477.03,
+      "y": 31125.4258
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -52907.3,
+      "y": 30752.06
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -52910.6523,
+      "y": 30716.24
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -52924.16,
+      "y": 30731.46
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -52422.3047,
+      "y": 30658.0449
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -54722.0234,
+      "y": 27289.9844
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -54714.7578,
+      "y": 27280.4336
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -54458.91,
+      "y": 27267.0977
+    },
+    {
+      "name": "pe_24",
+      "type": "Overlay",
+      "x": -55019.09,
+      "y": 27194.8438
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -54538.24,
+      "y": 27169.84
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -54737.84,
+      "y": 27268.21
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -55884.91,
+      "y": 27244.86
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -55847.4258,
+      "y": 27392.416
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -55873.293,
+      "y": 27311.3379
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -55853.582,
+      "y": 27205.6758
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -54170.4023,
+      "y": 9493.746
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -54113.84,
+      "y": 9516.526
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -54123.16,
+      "y": 9524.09
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -54978.78,
+      "y": 8065.414
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -54990.74,
+      "y": 8066.374
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -54098.2734,
+      "y": 9560.588
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -54852.0352,
+      "y": 10910.6494
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -54929.9844,
+      "y": 8061.041
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -54869.23,
+      "y": 8099.49463
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -54851.6133,
+      "y": 10933.875
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -53253.7344,
+      "y": 6194.361
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -53283.1953,
+      "y": 6116.906
+    },
+    {
+      "name": "steinbr_str",
+      "type": "Company",
+      "x": -52623.8242,
+      "y": 5322.928
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -53243.73,
+      "y": 6187.73438
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -54564.28,
+      "y": 7959.47363
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -52045.51,
+      "y": 4509.28125
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -52648.2,
+      "y": 6104.051
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -54321.457,
+      "y": 7114.17969
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -53599.1523,
+      "y": 6284.207
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -53302.4531,
+      "y": 6080.874
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -48068.9258,
+      "y": 40681.2031
+    },
+    {
+      "name": "pe_1se",
+      "type": "Overlay",
+      "x": -48845.1953,
+      "y": 37491.98
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -49938.1523,
+      "y": 37471.16
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -49901.7344,
+      "y": 37526.87
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -49857.74,
+      "y": 7009.48926
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -49846.32,
+      "y": 7013.17969
+    },
+    {
+      "name": "steinbr_str",
+      "type": "Company",
+      "x": -49330.3359,
+      "y": 7131.403
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -49295.4922,
+      "y": 6853.40039
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -50246.5547,
+      "y": 5355.36
+    },
+    {
+      "name": "steinbr_str",
+      "type": "Company",
+      "x": -50361.1758,
+      "y": 5540.61865
+    },
+    {
+      "name": "ns_oil",
+      "type": "Company",
+      "x": -50170.9531,
+      "y": 6970.479
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -50236.4063,
+      "y": 5348.957
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -49097.8867,
+      "y": 7621.387
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -49064.1953,
+      "y": 7607.54541
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -51962.79,
+      "y": 6621.48438
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -50300.72,
+      "y": 4561.72656
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -49142.5156,
+      "y": 6821.16455
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -49195.6367,
+      "y": 7085.40234
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -49163.3242,
+      "y": 7101.21973
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -49169.2656,
+      "y": 7081.75537
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -50680.1641,
+      "y": 7098.94434
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -50659.9961,
+      "y": 7100.81152
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -50494.3047,
+      "y": 7104.811
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -50490.76,
+      "y": 7112.67969
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -51894.3359,
+      "y": 6927.10352
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -50560.8242,
+      "y": 4977.89355
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -51029.54,
+      "y": 6136.463
+    },
+    {
+      "name": "weigh_station_ico",
+      "type": "WeightStation",
+      "x": -51017.1641,
+      "y": 6069.18945
+    },
+    {
+      "name": "pe_22",
+      "type": "Overlay",
+      "x": -51013.6875,
+      "y": 2920.039
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -44109.4648,
+      "y": 43985.832
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -47232.81,
+      "y": 40137.1523
+    },
+    {
+      "name": "sellplan",
+      "type": "Company",
+      "x": -47671.2422,
+      "y": 40267.29
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -46657.9648,
+      "y": 40307.52
+    },
+    {
+      "name": "terminal02",
+      "type": "Company",
+      "x": -47238.06,
+      "y": 40126.36
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -46836.8359,
+      "y": 40179.65
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47021.7773,
+      "y": 40467.2578
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47038.66,
+      "y": 40493.77
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -46581.11,
+      "y": 40055.38
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -46955.23,
+      "y": 40416.6523
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -46965.6172,
+      "y": 40382.207
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -46975.8438,
+      "y": 40399.81
+    },
+    {
+      "name": "dealer_ico",
+      "type": "TruckDealer",
+      "x": -47657.5039,
+      "y": 38709.5742
+    },
+    {
+      "name": "tree_et",
+      "type": "Company",
+      "x": -46468.4844,
+      "y": 39998.0273
+    },
+    {
+      "name": "subse",
+      "type": "Company",
+      "x": -47599.1367,
+      "y": 38850.7969
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -47185.543,
+      "y": 39574.37
+    },
+    {
+      "name": "polar_fish",
+      "type": "Company",
+      "x": -47923.0859,
+      "y": 38519.45
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -47173.6563,
+      "y": 39576
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -46580.95,
+      "y": 39658.57
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47625.2344,
+      "y": 39217.3945
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47960.76,
+      "y": 38069.63
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47945.5078,
+      "y": 38104.44
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47302.72,
+      "y": 39583.71
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47281.9844,
+      "y": 39585.18
+    },
+    {
+      "name": "cargotras",
+      "type": "Company",
+      "x": -44042.5664,
+      "y": 8894.379
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44025.56,
+      "y": 8967.038
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -44369.6953,
+      "y": 9041.317
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44150.12,
+      "y": 10001.6436
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -44177.44,
+      "y": 9962.676
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -46493.04,
+      "y": 10241.62
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -46471.38,
+      "y": 10243.9795
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -47454.2734,
+      "y": 9475.795
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -40505.2,
+      "y": 46083.9961
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -40413.6172,
+      "y": 46076.3555
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -40396.33,
+      "y": 46069.1563
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -40347.73,
+      "y": 45777.3242
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -40167.4023,
+      "y": 13615.3115
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -40692.98,
+      "y": 13060.0371
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -40695.87,
+      "y": 13066.2363
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -41501.3359,
+      "y": 11679.0889
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -41381.3477,
+      "y": 11784.0459
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -41380.67,
+      "y": 11777.2246
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -43904.5234,
+      "y": 9478.353
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -43774.918,
+      "y": 9097.262
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -43776.35,
+      "y": 9085.348
+    },
+    {
+      "name": "euroacres",
+      "type": "Company",
+      "x": -43582.5273,
+      "y": 9917.993
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -43735.44,
+      "y": 9160.019
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -43732.957,
+      "y": 9170.499
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -43856.52,
+      "y": 9437.299
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -43814.63,
+      "y": 9816.72949
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -43745.1563,
+      "y": 9852.788
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -43719.5352,
+      "y": 9827.532
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -43739.87,
+      "y": 9826.697
+    },
+    {
+      "name": "pe_1s",
+      "type": "Overlay",
+      "x": -38363.8555,
+      "y": 48422.0625
+    },
+    {
+      "name": "euroacres",
+      "type": "Company",
+      "x": -36499.31,
+      "y": 50335.19
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -36467.01,
+      "y": 49966.27
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -36470.7852,
+      "y": 49991.83
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -36164.85,
+      "y": 49189.6328
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -36229.44,
+      "y": 48912.11
+    },
+    {
+      "name": "sellplan",
+      "type": "Company",
+      "x": -36241.58,
+      "y": 49015.6523
+    },
+    {
+      "name": "eurogoodies",
+      "type": "Company",
+      "x": -36082.2461,
+      "y": 48267.1758
+    },
+    {
+      "name": "terminal01",
+      "type": "Company",
+      "x": -36451.9336,
+      "y": 48635.0273
+    },
+    {
+      "name": "bus_stop",
+      "type": "Bus Stop",
+      "x": -36457.375,
+      "y": 48645.7227
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -36510.1328,
+      "y": 48634.8477
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -36528.5156,
+      "y": 48626.2539
+    },
+    {
+      "name": "ateria",
+      "type": "Company",
+      "x": -35955.9063,
+      "y": 48338.8555
+    },
+    {
+      "name": "dealer_ico",
+      "type": "TruckDealer",
+      "x": -35845.82,
+      "y": 48600.2344
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -35750.293,
+      "y": 48576.4023
+    },
+    {
+      "name": "gas_ico",
+      "type": "Fuel",
+      "x": -35785.0859,
+      "y": 48585.5469
+    },
+    {
+      "name": "garage_large_ico",
+      "type": "Garage",
+      "x": -35767.8672,
+      "y": 48596.4
+    },
+    {
+      "name": "service_ico",
+      "type": "Service",
+      "x": -35941.2266,
+      "y": 48943.293
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -81330.72,
+      "y": -20427.6523
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -80635,
+      "y": -19863.8438
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -74073.91,
+      "y": -4819.36328
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -73010.82,
+      "y": -3143.31641
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -66181.31,
+      "y": 13520.7617
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -67383.125,
+      "y": 6638.375
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -60203.07,
+      "y": 19611.0742
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -57077.59,
+      "y": 26188.96
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -58098.2773,
+      "y": 26240.5625
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -54120.4844,
+      "y": 34974.43
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -52421.9922,
+      "y": 30943
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -53328.5039,
+      "y": 6191.301
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -50033.9766,
+      "y": 37333.73
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -50159.5078,
+      "y": 37331.59
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -50560.35,
+      "y": 5002.57031
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -50577.78,
+      "y": 5012.625
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -46767.4844,
+      "y": 42375.9922
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -47034.87,
+      "y": 40489.94
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -47945.1875,
+      "y": 38118.832
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -47960.707,
+      "y": 38031.72
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -40449.125,
+      "y": 45991.4453
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -43839.6563,
+      "y": 9433.762
+    },
+    {
+      "name": "parking_ico",
+      "type": "Parking",
+      "x": -36479.5078,
+      "y": 50002.9648
+    }
+  ]
+}

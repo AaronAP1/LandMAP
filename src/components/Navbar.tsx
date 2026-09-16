@@ -54,6 +54,7 @@ const navLinks: NavLinkItem[] = [
       },
     ],
   },
+  { name: 'Rutas', to: ROUTES.rutas },
   { name: 'Comunidad', to: ROUTES.comunidad },
   { name: 'Reglas', to: ROUTES.reglas },
   { name: 'Eventos', to: ROUTES.eventos },

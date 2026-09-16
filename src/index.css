@@ -149,3 +149,73 @@
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* --- Mapa de rutas (MapLibre) ------------------------------------------ */
+
+.maplibregl-map {
+  font-family: inherit;
+  background: #0f0f0f;
+}
+
+/* Los controles vienen en blanco: se oscurecen para el tema del sitio. */
+.maplibregl-ctrl-group {
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+.maplibregl-ctrl-group button + button {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+.maplibregl-ctrl-group button:hover {
+  background: #1b1b1b;
+}
+/* Los iconos son SVG negros incrustados; se invierten para que se vean. */
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(1);
+  opacity: 0.7;
+}
+.maplibregl-ctrl-group button:hover .maplibregl-ctrl-icon {
+  opacity: 1;
+}
+
+.maplibregl-ctrl-scale {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+}
+
+/* Etiquetas de ciudad. Son marcadores HTML, no una capa de texto de MapLibre:
+   esas requieren un servidor de glyphs y aqui todo se sirve desde el VPS. */
+.map-city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  /* El anchor 'top' de MapLibre situa el borde superior en la coordenada, asi
+     que se sube el conjunto para que el punto quede justo encima de ella. */
+  transform: translateY(-5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.map-city-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #e0512f;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.55);
+}
+
+.map-city-name {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #fff;
+  text-shadow:
+    0 0 3px #000,
+    0 0 6px #000,
+    0 1px 3px rgba(0, 0, 0, 0.95);
+}
