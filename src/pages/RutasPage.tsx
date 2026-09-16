@@ -20,7 +20,7 @@ const COUNTS = OVERLAYS.reduce<Record<string, number>>((acc, item) => {
 const SUMMARY = [
   { label: 'Ciudades', value: CITIES.length },
   { label: 'Gasolineras', value: COUNTS.Fuel ?? 0 },
-  { label: 'Empresas', value: COUNTS.Company ?? 0 },
+  { label: 'Empresas', value: 8 },
   { label: 'Paradas', value: COUNTS['Bus Stop'] ?? 0 },
   { label: 'Garajes', value: COUNTS.Garage ?? 0 },
   { label: 'Talleres', value: COUNTS.Service ?? 0 },
@@ -30,8 +30,8 @@ export default function RutasPage() {
   return (
     <PageShell
       eyebrow="Rutas"
-      title="El mapa de AndesMP, ciudad por ciudad."
-      lead="Las rutas peruanas del servidor, con sus ciudades, gasolineras, empresas y paradas. Acerca el mapa para ver los puntos de interes."
+      title="El mapa de PeruRoads, ciudad por ciudad."
+      lead="Las rutas peruanas del servidor, con sus ciudades, gasolineras y paradas. Acerca el mapa para ver los puntos de interes."
     >
       <section>
         <div className="h-[72vh] min-h-[440px] overflow-hidden rounded-2xl border border-white/10">

@@ -35,6 +35,29 @@ const OVERLAY_STYLES: Record<string, { color: string; label: string }> = {
 /** Los puntos solo aparecen a partir de este zoom: antes saturan el mapa. */
 const OVERLAY_MIN_ZOOM = 4;
 
+/**
+ * Ajuste de color de las tiles. TsMap hornea un fondo gris azulado claro en los
+ * PNG; esto lo oscurece en tiempo de render, sin regenerar el mapa.
+ *
+ * Como funciona cada valor:
+ *
+ *  - brightness-max: techo de brillo. Bajarlo oscurece TODO por igual, tambien
+ *    las carreteras. Es el mando grueso.
+ *  - contrast: separa claros de oscuros. Subirlo hunde el fondo (que es tono
+ *    medio) y mantiene arriba las carreteras (que son mas claras). Es lo que
+ *    permite oscurecer el fondo SIN apagar las vias.
+ *  - saturation: negativo quita el tinte azulado del fondo.
+ *
+ * Para un fondo aun mas oscuro: baja brightness-max y sube contrast a la par.
+ * Pasado cierto punto las carreteras tambien se apagan; si llegas ahi, lo
+ * correcto es regenerar en TsMap.Canvas con una paleta oscura.
+ */
+const TILE_PAINT = {
+  'raster-brightness-max': 0.42,
+  'raster-saturation': -0.35,
+  'raster-contrast': 0.4,
+} as const;
+
 export default function RouteMap() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -62,20 +85,8 @@ export default function RouteMap() {
           },
         },
         layers: [
-          { id: 'fondo', type: 'background', paint: { 'background-color': '#0f0f0f' } },
-          {
-            id: 'mapa',
-            type: 'raster',
-            source: 'andes',
-            // TsMap hornea un fondo gris azulado en los PNG. En vez de
-            // regenerar el mapa con otra paleta, se oscurece y dessatura aqui
-            // para que encaje con el tema del sitio.
-            paint: {
-              'raster-brightness-max': 0.62,
-              'raster-saturation': -0.25,
-              'raster-contrast': 0.15,
-            },
-          },
+          { id: 'fondo', type: 'background', paint: { 'background-color': '#0a0a0a' } },
+          { id: 'mapa', type: 'raster', source: 'andes', paint: { ...TILE_PAINT } },
         ],
       } satisfies StyleSpecification,
       bounds,
