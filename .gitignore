@@ -4,5 +4,9 @@ node_modules
 .env
 .env.local
 
-# Tiles del mapa: las genera TsMap, no se versionan (~22 MB, 21845 archivos)
+# Salida del build. Se compila en el VPS, no se versiona: tenerla en git
+# chocaba con el dist que genera el propio servidor en cada pull.
+dist/
+
+# Tiles del mapa: las genera TsMap, no se versionan (~92 MB, 21845 archivos)
 public/map/Tiles/

@@ -1,7 +1,7 @@
 import { Marker, type Map as MapLibreMap } from 'maplibre-gl';
 import { gameToLngLat, type TileMapInfo } from '../lib/tsmap';
 import { POLL_MS, type LivePlayer } from '../lib/live';
-import { cardinal, moodSvg } from '../lib/moods';
+import { cardinal, moodIcon } from '../lib/moods';
 
 /**
  * Capa de jugadores en vivo sobre el mapa.
@@ -34,9 +34,13 @@ function createElement(player: LivePlayer) {
 
   // El personaje no rota: los moods de Waze van siempre derechos. El rumbo
   // se comunica en el tooltip como punto cardinal.
-  const mood = document.createElement('div');
+  const mood = document.createElement('img');
   mood.className = 'map-player-mood';
-  mood.innerHTML = moodSvg(player.id);
+  mood.src = moodIcon(player.id);
+  mood.decoding = 'async';
+  // Decorativo: el nombre del conductor ya va en la etiqueta de al lado.
+  mood.alt = '';
+  mood.draggable = false;
 
   const label = document.createElement('div');
   label.className = 'map-player-label';

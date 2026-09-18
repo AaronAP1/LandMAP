@@ -236,15 +236,14 @@
 /* El personaje va siempre derecho: los moods de Waze no rotan con el rumbo.
    La direccion se comunica en el tooltip como punto cardinal. */
 .map-player-mood {
-  width: 30px;
-  height: 29px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75));
-}
-
-.map-player-mood svg {
-  width: 100%;
-  height: 100%;
-  display: block;
+  width: 38px;
+  height: 38px;
+  /* Los PNG no tienen todos la misma altura (107 a 125 px): contain los deja
+     a la misma escala sin deformar ninguno. */
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8));
+  -webkit-user-drag: none;
 }
 
 .map-player-label {
