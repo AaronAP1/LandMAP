@@ -8,6 +8,8 @@ import {
 } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { gameToLngLat, mapBounds, type TileMapInfo } from '../lib/tsmap';
+import { LivePlayersLayer } from './LivePlayers';
+import { POLL_MS, createMockSnapshot, fetchLivePlayers } from '../lib/live';
 import mapData from '../data/map-data.json';
 
 /** Carpeta publica donde import-tsmap.mjs deja Tiles/ y Overlays/. */
@@ -62,6 +64,8 @@ export default function RouteMap() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [online, setOnline] = useState<number | null>(null);
+  const [liveError, setLiveError] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -175,7 +179,70 @@ export default function RouteMap() {
 
     });
 
+    // --- Jugadores en vivo ---------------------------------------------------
+    const players = new LivePlayersLayer(map, INFO);
+
+    // ?mock=8 en la URL genera jugadores falsos que recorren el mapa, para
+    // poder trabajar la capa sin nadie conectado.
+    const mockCount = Number(
+      new URLSearchParams(window.location.search).get('mock') ?? 0,
+    );
+
+    let timer = 0;
+    let aborter: AbortController | null = null;
+
+    const poll = async () => {
+      if (mockCount > 0) {
+        const snapshot = createMockSnapshot(mockCount, {
+          x1: INFO.x1,
+          z1: INFO.y1,
+          x2: INFO.x2,
+          z2: INFO.y2,
+        });
+        players.update(snapshot.players);
+        setOnline(snapshot.players.length);
+        setLiveError(false);
+        return;
+      }
+
+      // Con la pestana en segundo plano no tiene sentido gastar peticiones.
+      if (document.hidden) return;
+
+      aborter?.abort();
+      aborter = new AbortController();
+
+      try {
+        const snapshot = await fetchLivePlayers(aborter.signal);
+        players.update(snapshot.players);
+        setOnline(snapshot.players.length);
+        setLiveError(false);
+
+        if (snapshot.dropped > 0) {
+          console.warn(
+            `[live] ${snapshot.dropped} jugadores descartados: faltan x/z o id. ` +
+              'Revisa que el backend mande "z" y no "y".',
+          );
+        }
+      } catch (cause) {
+        if ((cause as Error)?.name === 'AbortError') return;
+        setLiveError(true);
+      }
+    };
+
+    void poll();
+    timer = window.setInterval(poll, POLL_MS);
+
+    // Al volver a la pestana, refrescar ya en vez de esperar al siguiente tick.
+    const onVisible = () => {
+      if (!document.hidden) void poll();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+
     return () => {
+      window.clearInterval(timer);
+      document.removeEventListener('visibilitychange', onVisible);
+      aborter?.abort();
+      players.destroy();
       map.remove();
       mapRef.current = null;
     };
@@ -184,6 +251,26 @@ export default function RouteMap() {
   return (
     <div className="relative h-full w-full">
       <div ref={containerRef} className="h-full w-full bg-[#0f0f0f]" />
+
+      {/* Contador de conectados */}
+      <div className="absolute left-3 top-3 z-10 flex items-center gap-2 border border-white/10 bg-black/80 px-3 py-2 backdrop-blur-sm">
+        <span
+          className={`inline-block h-2 w-2 rounded-full ${
+            liveError
+              ? 'bg-white/25'
+              : online && online > 0
+                ? 'animate-pulse bg-[#22c55e]'
+                : 'bg-white/25'
+          }`}
+        />
+        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/70">
+          {liveError
+            ? 'Sin conexion'
+            : online === null
+              ? 'Conectando'
+              : `${online} en linea`}
+        </span>
+      </div>
 
       {/* Leyenda */}
       <div className="pointer-events-none absolute bottom-3 right-3 z-10 hidden border border-white/10 bg-black/80 p-3 backdrop-blur-sm sm:block">
